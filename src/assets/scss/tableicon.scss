@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+@mixin listables {
+  h1 {
+    text-align: center;
+    font-weight: 500;
+  }
+  table {
+    width: 100%;
+    mat-icon {
+      cursor: pointer;
+      margin: 0 2px;
+    }
+    .delete {
+      color: $red;
+    }
+    .edit {
+      color: $blue;
+    }
+    .update {
+      color: $yellow;
+    }
+    .add {
+      color: $green;
+    }
+  }
+}
+
+// admin/course-management/course-management.scss
+// admin/user-management/user-management.component.scss

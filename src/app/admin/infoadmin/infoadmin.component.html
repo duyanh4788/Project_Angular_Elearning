@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Thông Tin Admin</h3>
+  <mat-card *ngIf="infoUsers">
+    <mat-card-content>
+      <p>Tài Khoản : {{infoUsers.taiKhoan}}</p>
+      <p>Mật Khẩu : {{infoUsers.matKhau}}</p>
+    </mat-card-content>
+    <mat-card-content>
+      <p>Họ Tên : {{infoUsers.hoTen}}</p>
+      <p>Email : {{infoUsers.email}}</p>
+      <p>Phone : {{infoUsers.soDT}}</p>
+      <p>Nhóm : {{infoUsers.maNhom}}</p>
+      <p>Chức Vụ : {{infoUsers.maLoaiNguoiDung}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

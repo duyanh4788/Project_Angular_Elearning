@@ -1,0 +1,110 @@
+<div class="modal">
+  <h1>User : {{inFoUser.taiKhoan}}</h1>
+  <form [formGroup]="formEdit" (ngSubmit)="handleEditInfoUser()">
+
+    <!-- tài khoản -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Account</mat-label>
+      <input type="text" matInput disabled value={{inFoUser.taiKhoan}}>
+      <ng-container *ngIf="formEdit.get('taiKhoan').invalid && formEdit.get('taiKhoan').touched">
+        <!-- check empty -->
+        <span *ngIf="formEdit.get('taiKhoan').errors['required']">
+          Do Not Empty !
+        </span>
+        <!-- check pattern -->
+        <span *ngIf="formEdit.get('taiKhoan').errors['pattern']">
+          Invalid Account !
+        </span>
+      </ng-container>
+    </mat-form-field>
+    <!-- tài khoản -->
+
+    <!-- Password -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Password</mat-label>
+      <input type="text" matInput formControlName="matKhau">
+      <ng-container *ngIf="formEdit.get('matKhau').invalid && formEdit.get('matKhau').touched">
+        <!-- check empty -->
+        <span *ngIf="formEdit.get('matKhau').errors['required']">
+          Do Not Empty !
+        </span>
+        <!-- check pattern -->
+        <span *ngIf="formEdit.get('matKhau').errors['minlength'] || formEdit.get('matKhau').errors['maxlength']">
+          Độ Dài Từ 5-15 Kí Tự
+        </span>
+      </ng-container>
+    </mat-form-field>
+    <!-- Password -->
+
+    <!-- User Name -->
+    <mat-form-field class="fieldInput">
+      <mat-label>User Name</mat-label>
+      <input type="text" matInput formControlName="hoTen">
+      <ng-container *ngIf="formEdit.get('hoTen').invalid && formEdit.get('hoTen').touched">
+        <!-- check empty -->
+        <span *ngIf="formEdit.get('hoTen').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+    </mat-form-field>
+    <!-- User Name -->
+
+    <!-- Mã Nhóm -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Mã Nhóm</mat-label>
+      <mat-select disabled value={{inFoUser.maNhom}}>
+        <mat-option *ngFor="let ma of arrMaNhom" value={{ma}}>{{ma}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ng-container *ngIf="formEdit.get('maNhom').invalid && formEdit.get('maNhom').touched">
+      <span *ngIf="formEdit.get('maNhom').errors['required']">Do Not Empty !</span>
+    </ng-container>
+    <!-- Mã Nhóm -->
+
+    <!-- Email -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email">
+      <ng-container *ngIf="formEdit.get('email').invalid && formEdit.get('email').touched">
+        <!-- check empty -->
+        <span *ngIf="formEdit.get('email').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+    </mat-form-field>
+    <!-- Email -->
+
+    <!-- phone -->
+    <mat-form-field class="fieldInput">
+      <mat-label>phone</mat-label>
+      <input type="text" matInput formControlName="soDT">
+      <ng-container *ngIf="formEdit.get('soDT').invalid && formEdit.get('soDT').touched">
+        <!-- check empty -->
+        <span *ngIf="formEdit.get('soDT').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+    </mat-form-field>
+    <!-- phone -->
+
+    <!-- mã loại người dùng -->
+    <section class="example-section">
+      <label>Loại Học Viên : </label>
+      <ng-container *ngIf="inFoUser.maLoaiNguoiDung === 'GV' else maHV ">
+        <input type="radio" value="HV" disabled>Học Viên
+        <input type="radio" value="GV" disabled checked>Giáo Viên
+      </ng-container>
+      <ng-template #maHV>
+        <input type="radio" value="HV" disabled checked>Học Viên
+        <input type="radio" value="GV" disabled>Giáo Viên
+      </ng-template>
+    </section>
+    <!-- mã loại người dùng -->
+
+    <!-- button -->
+    <div class="btnSubmit">
+      <button type="submit" [disabled]="formEdit.invalid" mat-raised-button>Update</button>
+    </div>
+    <!-- button -->
+  </form>
+</div>

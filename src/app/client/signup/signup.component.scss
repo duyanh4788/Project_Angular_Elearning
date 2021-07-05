@@ -1,0 +1,6 @@
+@import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/form.scss";
+
+.container {
+  @include form;
+}

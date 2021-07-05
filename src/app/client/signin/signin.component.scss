@@ -1,0 +1,9 @@
+@import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/form.scss";
+
+.container {
+  @include form;
+  button{
+    margin: 0 5px;
+  }
+}

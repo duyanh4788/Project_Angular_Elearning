@@ -1,0 +1,26 @@
+[
+  {
+    "maDanhMuc": "BackEnd",
+    "tenDanhMuc": "Lập trình Backend"
+  },
+  {
+    "maDanhMuc": "Design",
+    "tenDanhMuc": "Thiết kế Web"
+  },
+  {
+    "maDanhMuc": "DiDong",
+    "tenDanhMuc": "Lập trình di động"
+  },
+  {
+    "maDanhMuc": "FrontEnd",
+    "tenDanhMuc": "Lập trình Front end"
+  },
+  {
+    "maDanhMuc": "FullStack",
+    "tenDanhMuc": "Lập trình Full Stack"
+  },
+  {
+    "maDanhMuc": "TuDuy",
+    "tenDanhMuc": "Tư duy lập trình"
+  }
+]

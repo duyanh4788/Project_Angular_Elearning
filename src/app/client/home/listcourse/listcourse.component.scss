@@ -1,0 +1,48 @@
+@import "../../../../assets/scss/container.scss";
+@import "../../../../assets/scss/variables.scss";
+
+.matCard {
+  margin: 0 10px;
+  .mat-card-image {
+    width: 330px;
+    height: 200px;
+  }
+  @include buttonS;
+  .btnRouter {
+    margin-right: 10px;
+  }
+}
+::ng-deep .owl-nav .owl-prev {
+  background-color: $green !important;
+  border-radius: 50% !important;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  right: -3%;
+}
+::ng-deep .owl-nav .owl-prev::before {
+  content: "›";
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  top: 17%;
+  left: 40%;
+}
+::ng-deep .owl-nav .owl-next {
+  background-color: $green !important;
+  border-radius: 50% !important;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 40%;
+  left: -3%;
+}
+::ng-deep .owl-nav .owl-next::before {
+  content: "‹";
+  font-size: 50px;
+  font-weight: bold;
+  position: absolute;
+  top: 17%;
+  right: 40%;
+}

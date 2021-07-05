@@ -1,0 +1,22 @@
+@import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/variables.scss";
+
+h1 {
+  margin-top: 20px;
+}
+.mat-card-image {
+  height: 200px;
+}
+.mat-elevation-z4 {
+  height: 450px;
+}
+@include buttonS;
+.my-pagination {
+  text-align: center;
+}
+
+::ng-deep .mat-accent .mat-slider-track-fill,
+::ng-deep .mat-accent .mat-slider-thumb,
+::ng-deep .mat-slider-thumb-label {
+  background-color: #1fc58e !important;
+}

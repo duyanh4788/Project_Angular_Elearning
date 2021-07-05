@@ -1,0 +1,70 @@
+<div class="tableListCourse">
+  <h3>User : {{taiKhoan}}</h3>
+  <h4>Danh Sách Đã Đăng Ký</h4>
+  <table>
+    <thead>
+      <tr class="row">
+        <th class="col-1">STT</th>
+        <th class="col-8">Tên Khoá Học</th>
+        <th class="col-2 icon">Trạng Thái</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let course of listWaitApproval ; let stt = index">
+      <tr class="row">
+        <td class="col-1">{{stt+1}}</td>
+        <td class="col-8">{{course.maKhoaHoc}} - {{course.tenKhoaHoc}}</td>
+        <td class="col-2 icon">
+          <mat-icon class="reg">how_to_reg</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+
+<div class="tableListCourse">
+  <h4>Danh Sách Chưa Ghi Danh</h4>
+  <table>
+    <thead>
+      <tr class="row">
+        <th class="col-1">STT</th>
+        <th class="col-8">Tên Khoá Học</th>
+        <th class="col-2 icon">Ghi Danh</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let course of listCourseUnregisted ; let stt = index">
+      <tr class="row">
+        <td class="col-1">{{stt+1}}</td>
+        <td class="col-8">{{course.maKhoaHoc}} - {{course.tenKhoaHoc}}</td>
+        <td class="col-2 icon">
+          <mat-icon class="done" (click)="registedCourse(course)"> done </mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+
+<div class="tableListCourse">
+  <h4>Danh Sách Đã Ghi Danh</h4>
+  <table>
+    <thead>
+      <tr class="row">
+        <th class="col-1">STT</th>
+        <th class="col-8">Tên Khoá Học</th>
+        <th class="col-2 icon">Huỷ Ghi Danh</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let course of listCourseRegisted ; let stt = index">
+      <tr class="row">
+        <td class="col-1">{{stt+1}}</td>
+        <td class="col-8">{{course.maKhoaHoc}} - {{course.tenKhoaHoc}}</td>
+        <td class="col-2 icon">
+          <mat-icon class="delete" (click)="cancelRegistedCourse(course)"> delete</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

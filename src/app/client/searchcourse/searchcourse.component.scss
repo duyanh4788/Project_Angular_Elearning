@@ -1,0 +1,19 @@
+@import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/variables.scss";
+
+.container {
+  .ng-star-inserted {
+    margin-bottom: 30px;
+  }
+  .imgSearch {
+    width: 300px;
+    height: 300px;
+  }
+  p {
+    font-weight: 600;
+  }
+  @include buttonS;
+  .btnRouter {
+    margin-right: 10px;
+  }
+}

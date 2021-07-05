@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Sign In</h1>
+  <form class="example-form" #formSignIn="ngForm" (ngSubmit)="handleSignIn()">
+    <mat-form-field class="fieldInput">
+      <mat-label>User Name</mat-label>
+      <input matInput ngModel name="taiKhoan" required #taiKhoan="ngModel" />
+    </mat-form-field>
+    <ng-container *ngIf="taiKhoan.errors && (taiKhoan.dirty || taiKhoan.touched)">
+      <span *ngIf="taiKhoan.errors.required">Do Not Empty !</span>
+    </ng-container>
+
+    <mat-form-field class="fieldInput">
+      <mat-label>Password</mat-label>
+      <input matInput ngModel name="matKhau" required #matKhau="ngModel" />
+    </mat-form-field>
+    <ng-container *ngIf="matKhau.errors && (matKhau.dirty || matKhau.touched)">
+      <span *ngIf="matKhau.errors.required">Do Not Empty !</span>
+    </ng-container>
+
+    <span>{{notiFy}}</span>
+
+    <div class="btnSubmit">
+      <button type="submit" mat-raised-button [disabled]="formSignIn.invalid">Đăng Nhập</button>
+      <button type="button" mat-raised-button routerLink="/signup">Đăng Ký</button>
+    </div>
+  </form>
+</div>
+
+<!--  "taiKhoan": "duyanh1111",
+  "matKhau": "123", -->

@@ -1,0 +1,175 @@
+<div class="container">
+
+  <button mat-button routerLink="../../admin/course">Come Back</button>
+
+  <h1>Update Khoá Học</h1>
+
+  <form fxLayout="row wrap" fxFlexFill fxLayoutGap="10px grid" [formGroup]="formUpdateCourse"
+    (ngSubmit)="handleUpdateCourse()">
+
+    <!-- maKhoaHoc -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Mã Khoá Học</mat-label>
+      <input type="text" matInput placeholder="Mã Khoá Học" formControlName="maKhoaHoc">
+
+      <!-- check empty -->
+      <ng-container *ngIf="formUpdateCourse.get('maKhoaHoc').invalid && formUpdateCourse.get('maKhoaHoc').touched">
+        <span *ngIf="formUpdateCourse.get('maKhoaHoc').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- maKhoaHoc -->
+
+    <!-- tenKhoaHoc -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Tên Khoá Học</mat-label>
+      <input type="text" matInput placeholder="Tên Khoá Học" formControlName="tenKhoaHoc">
+    </mat-form-field>
+
+    <!-- check empty -->
+    <ng-container *ngIf="formUpdateCourse.get('tenKhoaHoc').invalid && formUpdateCourse.get('tenKhoaHoc').touched">
+      <span *ngIf="formUpdateCourse.get('tenKhoaHoc').errors['required']">
+        Do Not Empty !
+      </span>
+    </ng-container>
+    <!-- check empty -->
+
+    <!-- tenKhoaHoc -->
+
+    <!-- luotXem -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Lượt Xem</mat-label>
+      <input type="text" matInput placeholder="Lượt Xem" formControlName="luotXem">
+    </mat-form-field>
+
+    <!-- check empty -->
+    <ng-container *ngIf="formUpdateCourse.get('luotXem').invalid && formUpdateCourse.get('luotXem').touched">
+      <span *ngIf="formUpdateCourse.get('luotXem').errors['required']">
+        Do Not Empty !
+      </span>
+    </ng-container>
+    <!-- check empty -->
+
+    <!-- luotXem -->
+
+    <!-- danhGia -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Đánh Giá</mat-label>
+      <input type="text" matInput placeholder="Đánh Giá" formControlName="danhGia">
+    </mat-form-field>
+
+    <!-- check empty -->
+    <ng-container *ngIf="formUpdateCourse.get('danhGia').invalid && formUpdateCourse.get('danhGia').touched">
+      <span *ngIf="formUpdateCourse.get('danhGia').errors['required']">
+        Do Not Empty !
+      </span>
+    </ng-container>
+    <!-- check empty -->
+
+    <!-- danhGia -->
+
+    <!-- maDanhMucKhoaHoc -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Danh Mục Khoá Học</mat-label>
+      <mat-select formControlName="maDanhMucKhoaHoc">
+        <mat-option *ngFor="let danhMuc of danhMucKhoaHoc" [value]="danhMuc.maDanhMuc">
+          {{danhMuc.maDanhMuc}}</mat-option>
+      </mat-select>
+
+      <!-- check empty -->
+      <ng-container *ngIf="formUpdateCourse.get('maDanhMucKhoaHoc').invalid && formUpdateCourse.get('maDanhMucKhoaHoc').touched">
+        <span *ngIf="formUpdateCourse.get('maDanhMucKhoaHoc').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- maDanhMucKhoaHoc -->
+
+    <!-- maNhom -->
+    <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Mã Nhóm</mat-label>
+      <mat-select formControlName="maNhom">
+        <mat-option *ngFor="let ma of arrMaNhom" [value]="ma">{{ma}}</mat-option>
+      </mat-select>
+
+      <!-- check empty -->
+      <ng-container *ngIf="formUpdateCourse.get('maNhom').invalid && formUpdateCourse.get('maNhom').touched">
+        <span *ngIf="formUpdateCourse.get('maNhom').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- maNhom -->
+
+    <!-- taiKhoanNguoiTao -->
+    <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Tài Khoản : </mat-label>
+      <input type="text" matInput disabled value={{updateCourse.nguoiTao?.taiKhoan}} >
+
+      <!-- check empty -->
+      <ng-container *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').invalid && formUpdateCourse.get('taiKhoanNguoiTao').touched">
+        <span *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- taiKhoanNguoiTao -->
+
+    <!-- ngayTao -->
+    <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Ngày Tạo {{updateCourse.ngayTao}}</mat-label>
+      <input matInput [matDatepicker]="picker1" (dateChange)="getDateForMat($event)" disabled>
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1 disabled="false"></mat-datepicker>
+    </mat-form-field>
+    <!-- ngayTao -->
+
+    <!-- hinhAnh -->
+    <div fxFlex="100" color="accent" appearance="fill" class="formAdd">
+      <div fxLayout="row wrap">
+        <ng-container *ngIf="imgShowLocal else imgShowUpload">
+          <img class="imgShow" src={{imgShowLocal}} alt="">
+        </ng-container>
+        <ng-template #imgShowUpload>
+          <img class="imgShow" src={{updateCourse.hinhAnh}} alt="">
+        </ng-template>
+
+        <input type="file" (change)="getFileImage($event)">
+      </div>
+    </div>
+    <!-- hinhAnh -->
+
+    <!-- moTa -->
+    <mat-form-field fxFlex="100" class="example-full-width" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Nội Dung</mat-label>
+      <textarea type="text" matInput placeholder="Nhập Mô Tả" formControlName="moTa"></textarea>
+
+      <!-- check empty -->
+      <ng-container *ngIf="formUpdateCourse.get('moTa').invalid && formUpdateCourse.get('moTa').touched">
+        <span *ngIf="formUpdateCourse.get('moTa').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- moTa -->
+
+    <div fxFlex="100" class="buttonS">
+      <button class="updateKH" mat-button type="submit" [disabled]="formUpdateCourse.invalid">Thêm Khoá Học</button>
+    </div>
+
+  </form>
+
+</div>
+
+<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit placeat qui corporis natus minima aliquam earum dicta labore nihil, laudantium quia iusto sequi incidunt tempore praesentium, culpa asperiores deserunt. -->

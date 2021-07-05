@@ -1,0 +1,24 @@
+<div class="container">
+  <h3>Có : {{reSults}} Kết Quả Tìm Thấy</h3>
+  <div *ngFor="let course of arrSearchListCourse">
+    <mat-card fxLayout="row wrap" fxLayoutGap="20px grid">
+      <div fxFlex.xs="100%" fxFlex.gt-md="33%">
+        <p>Mã Khoá Học : {{course.maKhoaHoc | shortcut : 20}}</p>
+        <img class="imgSearch" src={{course.hinhAnh}} alt={{course.hinhAnh}}>
+      </div>
+      <div fxFlex.xs="100%" fxFlex.gt-md="33%">
+        <p>Tên Khoá Học : {{course.tenKhoaHoc}} </p>
+        <p>Ngày Học : {{course.ngayTao}} </p>
+        <p>Lượt Xem : {{course.luotXem}} </p>
+        <p>Mã Nhóm : {{course.maNhom}} </p>
+        <p>Số Học Viên : {{course.soLuongHocVien}} </p>
+        <button mat-button class="btnRouter" routerLink="/detail-course/{{course.maKhoaHoc}}">Chi Tiết</button>
+        <button mat-button (click)="getDetailCourse(course)">Xem Nhanh</button>
+      </div>
+      <div fxFlex.xs="100%" fxFlex.gt-md="33%">
+        <p>Giáo Viên : {{course.nguoiTao.hoTen}}</p>
+        <p>Mô Tả : {{course.moTa}}</p>
+      </div>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+@import "../../../../assets/scss/variables.scss";
+
+mat-nav-list {
+  .nav-caption {
+    display: inline-block;
+    padding-left: 6px;
+    img {
+      width: 100px;
+    }
+  }
+  .routerActive {
+    color: $red;
+  }
+  .formSearch {
+    .inputHeader {
+      padding: 7px;
+      font-size: $fl;
+      border-radius: 15px;
+      border: 1px solid $white;
+      outline: none;
+    }
+  }
+  .aSelect {
+    position: relative;
+    .selectSearch {
+      position: absolute;
+      bottom: -3px;
+      right: 30px;
+      width: 50px;
+    }
+  }
+}
+::ng-deep .selectSearch {
+  font-size: $fs;
+}

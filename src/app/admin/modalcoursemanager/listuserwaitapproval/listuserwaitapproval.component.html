@@ -1,0 +1,27 @@
+<input type="text" placeholder="Tìm Học Viên" class="searchUser" (keyup)="searchUser($event)">
+
+<div class="tableListCourse">
+  <h4>Mã Khoá Học : {{maKhoaHocShowHTML}}</h4>
+  <h4>Học Viên Chờ Xác Thực</h4>
+  <table>
+    <thead>
+      <tr class="row">
+        <th class="col-1">STT</th>
+        <th class="col-4">Tài Khoản</th>
+        <th class="col-4">Họ Tên</th>
+        <th class="col-2">Trạng Thái</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of arrListUserWaitApproval ; let stt = index">
+      <tr class="row">
+        <td class="col-1">{{stt + 1}}</td>
+        <td class="col-4">{{user.taiKhoan}}</td>
+        <td class="col-4">{{user.hoTen}}</td>
+        <td class="col-2 icon">
+          <mat-icon class="done" (click)="apProvalUser(user.taiKhoan ,maKhoaHocShowHTML )">done</mat-icon>
+          <mat-icon class="delete" (click)="cancelApproval(user.taiKhoan ,maKhoaHocShowHTML )">delete</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

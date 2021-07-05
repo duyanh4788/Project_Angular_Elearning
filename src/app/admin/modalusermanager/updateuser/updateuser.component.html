@@ -1,0 +1,111 @@
+<div class="modal">
+
+  <h1>User : {{listUser.taiKhoan}}</h1>
+
+  <form [formGroup]="formEditUser" (ngSubmit)="handleEditInfoUser()">
+
+    <!-- tài khoản -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Account</mat-label>
+      <input type="text" matInput disabled value={{listUser.taiKhoan}}>
+
+      <!-- check empty -->
+      <ng-container *ngIf="formEditUser.get('taiKhoan').invalid && formEditUser.get('taiKhoan').touched">
+        <span *ngIf="formEditUser.get('taiKhoan').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- tài khoản -->
+
+    <!-- User Name -->
+    <mat-form-field class="fieldInput">
+      <mat-label>User Name</mat-label>
+      <input type="text" matInput formControlName="hoTen">
+
+      <!-- check empty -->
+      <ng-container *ngIf="formEditUser.get('hoTen').invalid && formEditUser.get('hoTen').touched">
+        <span *ngIf="formEditUser.get('hoTen').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- User Name -->
+
+    <!-- Mã Nhóm -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Mã Nhóm</mat-label>
+      <mat-select disabled value={{listUser.maNhom}}>
+        <mat-option *ngFor="let ma of arrMaNhom" value={{ma}}>{{ma}}</mat-option>
+      </mat-select>
+
+      <!-- check empty -->
+      <ng-container *ngIf="formEditUser.get('maNhom').invalid && formEditUser.get('maNhom').touched">
+        <span *ngIf="formEditUser.get('maNhom').errors['required']">Do Not Empty !</span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- Mã Nhóm -->
+
+    <!-- Email -->
+    <mat-form-field class="fieldInput">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput formControlName="email">
+
+      <!-- check empty -->
+      <ng-container *ngIf="formEditUser.get('email').invalid && formEditUser.get('email').touched">
+        <span *ngIf="formEditUser.get('email').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- Email -->
+
+    <!-- phone -->
+    <mat-form-field class="fieldInput">
+      <mat-label>phone</mat-label>
+      <input type="text" matInput formControlName="soDT">
+
+      <!-- check empty -->
+      <ng-container *ngIf="formEditUser.get('soDT').invalid && formEditUser.get('soDT').touched">
+        <span *ngIf="formEditUser.get('soDT').errors['required']">
+          Do Not Empty !
+        </span>
+      </ng-container>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- phone -->
+
+    <!-- mã loại người dùng -->
+    <section class="example-section">
+      <label>Loại Học Viên : </label>
+      <ng-container *ngIf="listUser.maLoaiNguoiDung === 'GV' else maHV ">
+        <input type="radio" value="HV" name="maND" (change)="getMaNguoiDung($event)">Học Viên
+        <input type="radio" value="GV" name="maND" (change)="getMaNguoiDung($event)" checked>Giáo Viên
+      </ng-container>
+      <ng-template #maHV>
+        <input type="radio" value="HV" name="maND" (change)="getMaNguoiDung($event)" checked>Học Viên
+        <input type="radio" value="GV" name="maND" (change)="getMaNguoiDung($event)">Giáo Viên
+      </ng-template>
+    </section>
+    <!-- mã loại người dùng -->
+
+
+
+    <!-- button -->
+    <div class="btnSubmit">
+      <button type="submit" [disabled]="formEditUser.invalid" mat-raised-button>Update</button>
+    </div>
+    <!-- button -->
+
+  </form>
+
+</div>

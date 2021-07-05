@@ -1,0 +1,76 @@
+<!-- if -->
+<mat-progress-bar mode="indeterminate" class="progressBar"></mat-progress-bar>
+<mat-toolbar>
+  <div fxHide.gt-sm>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <img src="./assets/images/MIN-OP1.png" alt="">
+    </button>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="space-around" fxHide.sm fxHide.xs>
+    <img routerLink="" src="./assets/images/MIN-OP1.png" alt="">
+    <!-- menu -->
+    <button mat-button [matMenuTriggerFor]="menu">Danh Sách Khoá Học</button>
+    <mat-menu #menu="matMenu" class="menuCategory">
+      <ng-container *ngFor="let categorys of arrCategoryCourse">
+        <button mat-menu-item (mouseover)="getCatalogCode(categorys.maDanhMuc)"
+          [matMenuTriggerFor]="maNhom">{{categorys.maDanhMuc}} -
+          {{categorys.tenDanhMuc}}
+        </button>
+      </ng-container>
+    </mat-menu>
+    <mat-menu #maNhom="matMenu" class="menuCategory">
+      <button mat-menu-item>Mã Nhóm</button>
+      <button mat-menu-item *ngFor="let ma of arrMaNhom" value={{ma}} [matMenuTriggerFor]="submit"
+        (mouseover)="selectGroup(ma)">{{ma}}</button>
+    </mat-menu>
+    <mat-menu #submit="matMenu">
+      <button mat-menu-item (click)="getListCourseByCategory()">Tìm Khoá Học</button>
+    </mat-menu>
+    <!-- menu -->
+    <button mat-button routerLink="admin" routerLinkActive="routerActive">
+      Admin
+    </button>
+    <!-- form search -->
+    <form #formSearch="ngForm" (ngSubmit)="searchCourses()" class="formSearch">
+      <input type="text" class="inputHeader" placeholder="Tìm Tên Khoá Học" ngModel name="search">
+    </form>
+    <!-- select maNhom -->
+    <div class="aSearch">
+      <mat-form-field class="selectSearch">
+        <mat-select value="GP01">
+          <mat-option *ngFor="let ma of arrMaNhom" [value]="ma" (click)="selectMaNhomSearch(ma)">{{ma}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- select maNhom -->
+    <!-- form search -->
+    <span class="example-spacer"></span>
+    <!-- if -->
+    <ng-container *ngIf="userName else notSignIn">
+      <button mat-button [matMenuTriggerFor]="logout">
+        <mat-icon class="iconHeader">account_circle</mat-icon> {{userName.hoTen}}
+      </button>
+      <mat-menu #logout="matMenu">
+        <button mat-menu-item (click)="infoUser()">
+          <mat-icon class="iconHeader">info</mat-icon> Info User
+        </button>
+        <button mat-menu-item (click)="logOutUser()" routerLink="signin">
+          <mat-icon class="iconHeader">logout</mat-icon> Logout
+        </button>
+      </mat-menu>
+    </ng-container>
+    <!-- if -->
+    <!-- else -->
+    <ng-template #notSignIn>
+      <button mat-button routerLink="signin" routerLinkActive="routerActive">
+        <mat-icon class="iconHeader">login</mat-icon>
+        Sing In
+      </button>
+      <button mat-button routerLink="signup" routerLinkActive="routerActive">
+        <mat-icon class="iconHeader">app_registration</mat-icon>
+        Sign Up
+      </button>
+    </ng-template>
+    <!-- else -->
+  </div>
+</mat-toolbar>

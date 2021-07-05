@@ -1,0 +1,9 @@
+@import "../../../../assets/scss/grid.scss";
+@import "../../../../assets/scss/tableadmin.scss";
+
+// table style
+@include tableAdmin;
+.tableListCourse {
+  height: 450px;
+}
+

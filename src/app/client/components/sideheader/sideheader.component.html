@@ -1,0 +1,88 @@
+<!-- if -->
+<mat-nav-list>
+  <a mat-list-item (click)="onSidenavClose()">
+    <span class="nav-caption" routerLink="/">
+      <img src="./assets/images/MIN-OP1.png" alt="" />
+    </span>
+  </a>
+  <a>
+    <!-- menu -->
+    <button mat-button [matMenuTriggerFor]="menu">Danh Sách Khoá Học</button>
+    <mat-menu #menu="matMenu">
+      <ng-container *ngFor="let categorys of arrCategoryCourse">
+        <button mat-menu-item (mouseover)="getCatalogCode(categorys.maDanhMuc)"
+          [matMenuTriggerFor]="maNhom">{{categorys.maDanhMuc}} -
+          {{categorys.tenDanhMuc}}
+        </button>
+      </ng-container>
+    </mat-menu>
+    <mat-menu #maNhom="matMenu">
+      <button mat-menu-item>Mã Nhóm</button>
+      <button mat-menu-item *ngFor="let ma of arrMaNhom" value={{ma}} [matMenuTriggerFor]="submit"
+        (mouseover)="selectGroup(ma)">{{ma}}</button>
+    </mat-menu>
+    <mat-menu #submit="matMenu">
+      <button mat-menu-item (click)="getListCourseByCategory()">Tìm Khoá Học</button>
+    </mat-menu>
+    <!-- menu -->
+  </a>
+  <a mat-list-item (click)="onSidenavClose()">
+    <button mat-menu-item class="nav-caption" routerLink="admin">Admin</button>
+  </a>
+  <a mat-list-item>
+    <!-- form search -->
+    <form #formSearch="ngForm" (ngSubmit)="searchCourses()" class="formSearch">
+      <input type="text" class="inputHeader" placeholder="Tìm Tên Khoá Học" ngModel name="search">
+    </form>
+    <!-- form search -->
+  </a>
+  <a>
+    <div class="aSelect">
+    <!-- select maNhom -->
+    <mat-form-field class="selectSearch">
+      <mat-select value="GP01">
+        <mat-option *ngFor="let ma of arrMaNhom" [value]="ma" (click)="selectMaNhomSearch(ma)">{{ma}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- select maNhom -->
+    </div>
+  </a>
+  <!-- if -->
+  <ng-container *ngIf="userName; else notSignIn">
+    <a>
+      <mat-list-item [matMenuTriggerFor]="logout">
+        <mat-icon>account_circle</mat-icon> {{ userName.hoTen }}
+      </mat-list-item>
+      <mat-menu #logout="matMenu">
+        <a mat-list-item (click)="onSidenavClose()">
+          <button mat-menu-item (click)="infoUser()">
+            <mat-icon>info</mat-icon> Info User
+          </button>
+        </a>
+        <a mat-list-item>
+          <button mat-menu-item (click)="logOutUser()" routerLink="signin">
+            <mat-icon>logout</mat-icon>
+            Logout
+          </button>
+        </a>
+      </mat-menu>
+    </a>
+  </ng-container>
+  <!-- if -->
+  <!-- else -->
+  <ng-template #notSignIn>
+    <a mat-list-item (click)="onSidenavClose()">
+      <button mat-menu-item class="nav-caption" routerLink="signin" routerLinkActive="routerActive">
+        <mat-icon>login</mat-icon>
+        Sing In
+      </button>
+    </a>
+    <a mat-list-item (click)="onSidenavClose()">
+      <button mat-menu-item class="nav-caption" routerLink="signup" routerLinkActive="routerActive">
+        <mat-icon>app_registration</mat-icon>
+        Sign Up
+      </button>
+    </a>
+  </ng-template>
+  <!-- else -->
+</mat-nav-list>

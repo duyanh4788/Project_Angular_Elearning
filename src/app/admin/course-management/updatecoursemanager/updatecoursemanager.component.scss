@@ -1,0 +1,13 @@
+@import "../../../../assets/scss/formCourseManager.scss";
+@import "../../../../assets/scss/variables.scss";
+
+@include formCourse;
+.updateKH {
+  background-color: $yellow;
+  color: $white;
+}
+.imgShow {
+  width: 50px;
+  height: 50px;
+  margin-right: 50px;
+}

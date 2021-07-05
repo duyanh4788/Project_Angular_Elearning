@@ -1,0 +1,38 @@
+<!-- css -->
+<style>
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: #1fc58e;
+    color: #f7f7f7;
+    border-radius: 50%;
+  }
+</style>
+<!-- css -->
+<div class="container">
+  <h3>Khoá Học : {{maDanhMuc}}</h3>
+  <div fxHide.lt-md>
+    <span>Colums Cols : </span>
+    <mat-slider [min]="2" [max]="4" [thumbLabel]="true" [(ngModel)]="gridColums"></mat-slider>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div [fxFlex]="100 / gridColums + '%'" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%"
+      *ngFor="let course of listCoursByCategory | paginate: { itemsPerPage: 4, currentPage: p }">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <p>Mã Khoá Học : {{ course.maKhoaHoc | shortcut : 20 }}</p>
+        </mat-card-header>
+        <img mat-card-image src="{{ course.hinhAnh }}" alt="{{ course.hinhAnh }}" />
+        <mat-card-content>
+          <p>Tên Khoá Học : {{ course.tenKhoaHoc }}</p>
+          <p>Ngày Học : {{ course.ngayTao }}</p>
+          <p>Mô Tả : {{ course.moTa | shortcut : 50}}</p>
+        </mat-card-content>
+        <mat-card-actions align="start">
+          <button mat-button (click)="registererCourses()">Đăng Ký</button>
+          <button mat-button (click)="getDetailCourse(course)">Xem Nhanh</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <pagination-controls previousLabel="" nextLabel="" (pageChange)="p = $event" class="my-pagination">
+  </pagination-controls>
+</div>

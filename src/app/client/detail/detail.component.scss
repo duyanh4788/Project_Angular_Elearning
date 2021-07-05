@@ -1,0 +1,18 @@
+@import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/grid.scss";
+@import "../../../assets/scss/variables.scss";
+
+.container {
+  mat-card {
+    background-color: $white;
+    @include buttonS;
+    img {
+      width: 100%;
+      height: 300px;
+    }
+    .introCourse {
+      text-align: left;
+    }
+    @include tagHr;
+  }
+}

@@ -1,0 +1,85 @@
+<div class="container">
+  <h1>Các Khoá Học Mới Nhất : </h1>
+  <mat-form-field>
+    <mat-label>Mã Nhóm</mat-label>
+    <mat-select value="GP01">
+      <mat-option *ngFor="let ma of arrMaNhom" [value]="ma" (click)="getListCourses(ma)">{{ma}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let course of arrListCourse">
+      <ng-template carouselSlide >
+        <mat-card class="matCard">
+          <mat-card-header>
+            <p>Mã Khoá Học : {{course.maKhoaHoc | shortcut : 10}}</p>
+          </mat-card-header>
+          <img mat-card-image src={{course.hinhAnh}} alt={{course.hinhAnh}}>
+          <mat-card-content>
+            <p>Tên Khoá Học : {{course.tenKhoaHoc | shortcut : 20}}</p>
+            <p>Mô Tả : {{course.moTa | shortcut : 20}}</p>
+            <p>Ngày Học : {{course.ngayTao}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <!-- truyền maKhoaHoc đến detail/detail.component.ts (result.maKhoaHoc) -->
+            <button mat-button routerLink="/detail-course/{{course.maKhoaHoc}}">Chi Tiết</button>
+            <button mat-button (click)="getDetailCourse(course)">Xem Nhanh</button>
+          </mat-card-actions>
+        </mat-card>
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div fxHide.lt-md>
+ <img src={{course.hinhAnh}} alt="">
+        <p>Mã Khoá Học : {{course.maKhoaHoc | shortcut : 10}}</p>
+        <p>Tên Khoá Học : {{course.tenKhoaHoc | shortcut : 20}}</p>
+        <p>Mô Tả : {{course.moTa | shortcut : 20}}</p>
+        <button mat-button class="btnRouter" routerLink="/detail-course/{{course.maKhoaHoc}}">Chi Tiết</button>
+        <button mat-button (click)="getDetailCourse(course)">Xem Nhanh</button>
+    <span>Colums Cols : </span>
+    <mat-slider [min]="4" [max]="6" [thumbLabel]="true" [(ngModel)]="gridColums"></mat-slider>
+  </div>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div [fxFlex]="100/gridColums + '%'" fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" *ngFor="let course of arrListCourse">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <p>Mã Khoá Học : {{course.maKhoaHoc | shortcut : 10}}</p>
+        </mat-card-header>
+        <img mat-card-image src={{course.hinhAnh}} alt={{course.hinhAnh}}>
+        <mat-card-content>
+          <p>Tên Khoá Học : {{course.tenKhoaHoc | shortcut : 20}}</p>
+          <p>Mô Tả : {{course.moTa | shortcut : 20}}</p>
+          <p>Ngày Học : {{course.ngayTao}}</p>
+        </mat-card-content>
+        <mat-card-actions align="start">
+          truyền maKhoaHoc đến detail/detail.component.ts (result.maKhoaHoc)
+          <button mat-button routerLink="/detail-course/{{course.maKhoaHoc}}">Chi Tiết</button>
+          <button mat-button (click)="getDetailCourse(course)">Xem Nhanh</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div> -->

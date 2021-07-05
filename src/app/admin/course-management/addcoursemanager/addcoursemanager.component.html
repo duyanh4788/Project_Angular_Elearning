@@ -1,0 +1,179 @@
+<div class="container">
+
+  <button mat-button routerLink="../../admin/course">Come Back</button>
+
+  <h1>Thêm Khoá Học</h1>
+
+  <form fxLayout="row wrap" fxFlexFill fxLayoutGap="10px grid" #formAddCoure="ngForm" (ngSubmit)="handleAddCourse()">
+
+    <!-- maKhoaHoc -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Mã Khoá Học</mat-label>
+      <input type="text" matInput placeholder="Mã Khoá Học" ngModel name="maKhoaHoc" required #maKhoaHoc="ngModel">
+
+      <!-- Check empty -->
+      <ng-container *ngIf="maKhoaHoc.errors && (maKhoaHoc.dirty || maKhoaHoc.touched)">
+        <span *ngIf="maKhoaHoc.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- maKhoaHoc -->
+
+    <!-- tenKhoaHoc -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Tên Khoá Học</mat-label>
+      <input type="text" matInput placeholder="Tên Khoá Học" ngModel name="tenKhoaHoc" required #tenKhoaHoc="ngModel">
+
+      <!-- Check empty -->
+      <ng-container *ngIf="tenKhoaHoc.errors && (tenKhoaHoc.dirty || tenKhoaHoc.touched)">
+        <span *ngIf="tenKhoaHoc.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- tenKhoaHoc -->
+
+    <!-- luotXem -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Lượt Xem</mat-label>
+      <input type="text" matInput placeholder="Lượt Xem" ngModel name="luotXem" required #luotXem="ngModel">
+
+      <!-- Check empty -->
+      <ng-container *ngIf="luotXem.errors && (luotXem.dirty || luotXem.touched)">
+        <span *ngIf="luotXem.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- luotXem -->
+
+    <!-- danhGia -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Đánh Giá</mat-label>
+      <input type="text" matInput placeholder="Đánh Giá" ngModel name="danhGia" required #danhGia="ngModel">
+
+      <!-- Check empty -->
+      <ng-container *ngIf="danhGia.errors && (danhGia.dirty || danhGia.touched)">
+        <span *ngIf="danhGia.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- danhGia -->
+
+    <!-- biDanh -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Bí Danh</mat-label>
+      <input type="text" matInput placeholder="Bí Danh" ngModel name="biDanh" required #biDanh="ngModel">
+
+      <!-- Check empty -->
+      <ng-container *ngIf="biDanh.errors && (biDanh.dirty || biDanh.touched)">
+        <span *ngIf="biDanh.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- biDanh -->
+
+    <!-- maDanhMucKhoaHoc -->
+    <mat-form-field fxFlex="50" color="accent" class="formAdd" appearance="fill">
+      <mat-label>Danh Mục Khoá Học</mat-label>
+      <mat-select ngModel name="maDanhMucKhoaHoc" required #maDanhMucKhoaHoc="ngModel">
+        <mat-option *ngFor="let danhMuc of danhMucKhoaHoc" [value]="danhMuc" (click)="getDanhMuc(danhMuc)">{{danhMuc}}
+        </mat-option>
+      </mat-select>
+
+      <!-- Check empty -->
+      <ng-container *ngIf="maDanhMucKhoaHoc.errors && (maDanhMucKhoaHoc.dirty || maDanhMucKhoaHoc.touched)">
+        <span *ngIf="maDanhMucKhoaHoc.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- maDanhMucKhoaHoc -->
+
+    <!-- maNhom -->
+    <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Mã Nhóm</mat-label>
+      <mat-select ngModel name="maNhom" required #maNhom="ngModel">
+        <mat-option *ngFor="let ma of arrMaNhom" [value]="ma" (click)="getMaNhom(ma)">{{ma}}
+        </mat-option>
+      </mat-select>
+
+      <!-- Check empty -->
+      <ng-container *ngIf="maNhom.errors && (maNhom.dirty || maNhom.touched)">
+        <span *ngIf="maNhom.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- maNhom -->
+
+    <!-- taiKhoanNguoiTao -->
+    <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Tài Khoản : {{dataCourse.taiKhoanNguoiTao}} </mat-label>
+      <input type="text" matInput disabled ngModel name="taiKhoanNguoiTao" required #taiKhoanNguoiTao="ngModel">
+
+      <!-- Check empty -->
+      <ng-container *ngIf="taiKhoanNguoiTao.errors && (taiKhoanNguoiTao.dirty || taiKhoanNguoiTao.touched)">
+        <span *ngIf="taiKhoanNguoiTao.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- taiKhoanNguoiTao -->
+
+    <!-- ngayTao -->
+    <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Ngày Tạo</mat-label>
+      <input matInput [matDatepicker]="picker1" ngModel name="ngayTao" required #ngayTao="ngModel"
+        (dateChange)="getDateForMat($event)">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+
+      <!-- Check empty -->
+      <ng-container *ngIf="ngayTao.errors && (ngayTao.dirty || ngayTao.touched)">
+        <span *ngIf="ngayTao.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- ngayTao -->
+
+    <!-- hinhAnh -->
+    <div fxFlex="50" color="accent" appearance="fill" class="formAdd">
+      <img class="imgShow" src={{imgShowLocal}} alt="">
+      <input type="file" (change)="getFileImage($event)" ngModel name="hinhAnh" required #hinhAnh="ngModel">
+      <!-- Check empty -->
+      <ng-container *ngIf="hinhAnh.errors && (hinhAnh.dirty || hinhAnh.touched)">
+        <span *ngIf="hinhAnh.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </div>
+    <!-- hinhAnh -->
+
+    <!-- moTa -->
+    <mat-form-field fxFlex="100" class="example-full-width" color="accent" appearance="fill" class="formAdd">
+      <mat-label>Nội Dung</mat-label>
+      <textarea type="text" matInput placeholder="Nhập Mô Tả" ngModel name="moTa" required #moTa="ngModel"></textarea>
+
+      <!-- Check empty -->
+      <ng-container *ngIf="moTa.errors && (moTa.dirty || moTa.touched)">
+        <span *ngIf="moTa.errors.required">Do Not Empty !</span>
+      </ng-container>
+      <!-- Check empty -->
+
+    </mat-form-field>
+    <!-- moTa -->
+
+    <div fxFlex="100" class="buttonS">
+      <button class="addKH" mat-button type="submit" [disabled]="formAddCoure.invalid">Thêm Khoá Học</button>
+    </div>
+
+  </form>
+
+</div>
+
+<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit placeat qui corporis natus minima aliquam earum dicta labore nihil, laudantium quia iusto sequi incidunt tempore praesentium, culpa asperiores deserunt. -->

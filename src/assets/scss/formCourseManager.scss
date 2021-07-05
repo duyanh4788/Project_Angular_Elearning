@@ -1,0 +1,32 @@
+@import "./container.scss";
+@import "./variables.scss";
+
+@mixin formCourse {
+  .container {
+    h1 {
+      text-align: center;
+      font-weight: 500;
+    }
+    .formAdd {
+      width: 100%;
+      margin: 10px 0;
+    }
+    textarea {
+      height: 300px;
+    }
+    .buttonS {
+      text-align: center;
+      .addKH {
+        background-color: $green;
+        color: $white;
+      }
+    }
+    span {
+      color: $red;
+      font-size: $fm;
+    }
+  }
+}
+
+// updatecoursemanager.component.scss
+// addcoursemanager.component.scss

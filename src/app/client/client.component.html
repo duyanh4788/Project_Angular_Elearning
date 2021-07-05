@@ -1,0 +1,16 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <!-- responsive navbar ( <= 900px show , > 900px hidden)-->
+    <app-sideheader (sidenavClose)="sidenav.close()"></app-sideheader>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- responsive navbar ( > 900px show , <= 900px hidden)-->
+    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+    <app-slider></app-slider>
+    <main>
+        <mat-icon routerLink="/" style="color: #1fc58e; cursor: pointer; text-align: center;"> arrow_back</mat-icon>
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

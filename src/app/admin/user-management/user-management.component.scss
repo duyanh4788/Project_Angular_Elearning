@@ -1,0 +1,21 @@
+@import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/tableicon.scss";
+@import "../../../assets/scss/variables.scss";
+
+.container {
+  .filter {
+    width: 100%;
+  }
+  h4{
+    color: $red;
+    font-size: $fs
+  }
+  @include listables;
+  .searchApi{
+    width: 100%;
+    padding: 10px 5px;
+    border: 1px solid $white;
+    outline: none;
+    border-radius: 5px;
+  }
+}

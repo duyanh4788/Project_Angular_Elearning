@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+@mixin form {
+  h1 {
+    text-align: center;
+    font-weight: 500;
+  }
+  .fieldInput {
+    width: 100%;
+  }
+  .btnSubmit {
+    text-align: center;
+    button {
+      background-color: $green;
+      color: $white;
+      margin-top: 20px;
+    }
+  }
+  span {
+    color: $red;
+    font-size: $fs;
+  }
+}
+// SigninComponent
+// SignupComponent
+// AdduserComponent
+// AdduserComponent
+// ModalinfouserComponent

@@ -1,0 +1,24 @@
+$green: #1fc58e;
+$white: #f7f7f7;
+$red: #be2f29;
+$yellow: #ecaf44;
+$blue: #99ddff;
+$regis: #161f6d;
+$bgLoad: #a09e9e6c;
+
+$fs: 10px;
+$fm: 12px;
+$fl: 15px;
+$fxl: 17px;
+
+@mixin buttonS {
+  button {
+    background-color: $green;
+    color: $white;
+  }
+}
+@mixin tagHr {
+  hr {
+    border: 1px solid $green;
+  }
+}
