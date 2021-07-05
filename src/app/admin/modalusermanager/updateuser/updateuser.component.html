@@ -5,7 +5,7 @@
   <form [formGroup]="formEditUser" (ngSubmit)="handleEditInfoUser()">
 
     <!-- tài khoản -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>Account</mat-label>
       <input type="text" matInput disabled value={{listUser.taiKhoan}}>
 
@@ -21,7 +21,7 @@
     <!-- tài khoản -->
 
     <!-- User Name -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>User Name</mat-label>
       <input type="text" matInput formControlName="hoTen">
 
@@ -37,7 +37,7 @@
     <!-- User Name -->
 
     <!-- Mã Nhóm -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>Mã Nhóm</mat-label>
       <mat-select disabled value={{listUser.maNhom}}>
         <mat-option *ngFor="let ma of arrMaNhom" value={{ma}}>{{ma}}</mat-option>
@@ -53,7 +53,7 @@
     <!-- Mã Nhóm -->
 
     <!-- Email -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>Email</mat-label>
       <input type="text" matInput formControlName="email">
 
@@ -69,7 +69,7 @@
     <!-- Email -->
 
     <!-- phone -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>phone</mat-label>
       <input type="text" matInput formControlName="soDT">
 

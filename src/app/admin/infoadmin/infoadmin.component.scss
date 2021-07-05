@@ -1,1 +1,62 @@
 @import "../../../assets/scss/container.scss";
+@import "../../../assets/scss/grid.scss";
+@import "../../../assets/scss/variables.scss";
+
+
+.container {
+    .infoAdmin{
+        border: 1px solid $green;
+        border-radius: 20px;
+        padding: 20px;
+    }
+    .chart {
+        background: conic-gradient($red 4%, $bgLoad 0 8%, $green 0 17%, $yellow 0 48%, $blue 0 54%, $regis 0);
+        border-radius: 50%;
+        width: 100%;
+        padding-top: 100%;
+        margin: 0 20px;
+    }
+
+    .key {
+        width: 100%;
+        list-style: none;
+        display: table;
+        border-collapse: separate;
+        > li {
+            display: table-row;
+            > * {
+                display: table-cell;
+                border-bottom: 12px solid $white;
+            }
+        }
+    }
+
+    .percent {
+        color: $white;
+        padding: 10px 2px;
+        text-shadow: 0 0 1px black;
+        text-align: center;
+    }
+    .choice {
+        padding-left: 10px;
+    }
+
+    .red {
+        background: $red;
+    }
+    .gray {
+        background: $green;
+    }
+    .blue {
+        background: $blue;
+    }
+    .yellow {
+        background: $yellow;
+    }
+    .purple {
+        background: $regis;
+    }
+    .orange {
+        background: $bgLoad;
+    }
+}

@@ -1,16 +1,54 @@
 <div class="container">
-  <h3>Thông Tin Admin</h3>
-  <mat-card *ngIf="infoUsers">
-    <mat-card-content>
-      <p>Tài Khoản : {{infoUsers.taiKhoan}}</p>
-      <p>Mật Khẩu : {{infoUsers.matKhau}}</p>
-    </mat-card-content>
-    <mat-card-content>
-      <p>Họ Tên : {{infoUsers.hoTen}}</p>
-      <p>Email : {{infoUsers.email}}</p>
-      <p>Phone : {{infoUsers.soDT}}</p>
-      <p>Nhóm : {{infoUsers.maNhom}}</p>
-      <p>Chức Vụ : {{infoUsers.maLoaiNguoiDung}}</p>
-    </mat-card-content>
-  </mat-card>
+  <h1>Thông Tin Admin</h1>
+
+  <div class="row infoAdmin">
+    <div class="col-3">
+      <mat-card *ngIf="infoUsers">
+        <mat-card-content>
+          <p>Tài Khoản : {{infoUsers.taiKhoan}}</p>
+          <p>Mật Khẩu : {{infoUsers.matKhau}}</p>
+        </mat-card-content>
+        <mat-card-content>
+          <p>Họ Tên : {{infoUsers.hoTen}}</p>
+          <p>Email : {{infoUsers.email}}</p>
+          <p>Phone : {{infoUsers.soDT}}</p>
+          <p>Nhóm : {{infoUsers.maNhom}}</p>
+          <p>Chức Vụ : {{infoUsers.maLoaiNguoiDung}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-3">
+      <div class="chart"></div>
+    </div>
+    <div class="col-3">
+      <ul class="key">
+        <li>
+          <strong class="percent red">4%</strong>
+          <span class="choice">Jump right in, startupfille here I come.</span>
+        </li>
+        <li>
+          <strong class="percent gray">4%</strong>
+          <span class="choice">Email back to discuss, flattered and positive.</span>
+        </li>
+        <li>
+          <strong class="percent purple">6%</strong>
+          <span class="choice">Respond and say "Thanks but no thanks."</span>
+        </li>
+        <li>
+          <strong class="percent blue">9%</strong>
+          <span class="choice">Email back to discuss, all business.</span>
+        </li>
+        <li>
+          <strong class="percent yellow">31%</strong>
+          <span class="choice">Email back to discuss, but skeptically.</span>
+        </li>
+        <li>
+          <strong class="percent orange">46%</strong>
+          <span class="choice">Delete the email.</span>
+        </li>
+      </ul>
+    </div>
+
+
+  </div>
 </div>

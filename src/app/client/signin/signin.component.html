@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Sign In</h1>
   <form class="example-form" #formSignIn="ngForm" (ngSubmit)="handleSignIn()">
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>User Name</mat-label>
       <input matInput ngModel name="taiKhoan" required #taiKhoan="ngModel" />
     </mat-form-field>
@@ -9,7 +9,7 @@
       <span *ngIf="taiKhoan.errors.required">Do Not Empty !</span>
     </ng-container>
 
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput"appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput ngModel name="matKhau" required #matKhau="ngModel" />
     </mat-form-field>

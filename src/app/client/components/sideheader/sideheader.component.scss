@@ -29,7 +29,30 @@ mat-nav-list {
       width: 50px;
     }
   }
+  .iconHeader {
+    color: $green;
+  }
 }
+
+.mat-menu-item .mat-icon {
+  color: $green;
+}
+
 ::ng-deep .selectSearch {
   font-size: $fs;
+}
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+  height: 0 !important;
+}
+
+::ng-deep .mat-primary::-webkit-scrollbar {
+  width: 6px;
+}
+::ng-deep .mat-primary::-webkit-scrollbar-thumb {
+  background: $white;
+  border-radius: 10px;
+}
+::ng-deep .mat-primary::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $white;
+  border-radius: 10px;
 }

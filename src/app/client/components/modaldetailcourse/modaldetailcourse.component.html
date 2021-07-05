@@ -1,7 +1,13 @@
-<section class="modal">
-  <h1 mat-dialog-title>Tên Khoá Học : {{detailCourse.tenKhoaHoc}}</h1>
-  <img src={{detailCourse.hinhAnh}} alt="">
-  <div mat-dialog-content>
-    Mô Tả : {{detailCourse.moTa}}
-  </div>
-</section>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>
+      Tên Khoá Học : {{detailCourse.tenKhoaHoc}}
+    </mat-card-title>
+    <mat-card-subtitle>Mã Khoá Học : {{detailCourse.maKhoaHoc}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src={{detailCourse.hinhAnh}} alt="">
+  <mat-card-content>
+    <p>Mô Tả : {{detailCourse.moTa}}</p>
+  </mat-card-content>
+</mat-card>

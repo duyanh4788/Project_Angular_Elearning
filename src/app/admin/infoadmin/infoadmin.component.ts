@@ -12,7 +12,7 @@ import { InforUser } from 'src/app/core/models/inforUser';
 export class InfoadminComponent implements OnInit {
 
   public infoUsers?: InforUser; //InforUser model taọ từ /models/inforUser.ts row 1
-
+  public chiTietKhoaHoc: Array<any> = []
   constructor(private siginCourseService: SigincourseService, private inforuserService: InforuserService,) { }
 
   ngOnInit(): void {
@@ -30,6 +30,7 @@ export class InfoadminComponent implements OnInit {
         const { chiTietKhoaHocGhiDanh, ...infoUser } = data
         this.inforuserService.setInforUser(infoUser)// post data
         this.infoUsers = this.inforuserService.getInforUser(); // get data
+        this.chiTietKhoaHoc = chiTietKhoaHocGhiDanh
       });
   }
 

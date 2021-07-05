@@ -1,9 +1,9 @@
 <div class="container">
   <h1>Form Đăng Ký</h1>
-  <form class="example-form" #formSignUp="ngForm" (ngSubmit)="handelSignUp()">
+  <form class="example-form " #formSignUp="ngForm" (ngSubmit)="handelSignUp()">
 
     <!-- tài khoản -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Account</mat-label>
       <input matInput ngModel name="taiKhoan" required #taiKhoan="ngModel" />
     </mat-form-field>
@@ -14,7 +14,7 @@
     <!-- tài khoản -->
 
     <!-- Password -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput ngModel name="matKhau" required #matKhau="ngModel"
         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{0,}$" />
@@ -28,7 +28,7 @@
     <!-- Password -->
 
     <!-- Confirm Password -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Confirm Password</mat-label>
       <input matInput ngModel name="rematKhau" required #rematKhau="ngModel"
         pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{0,}$"
@@ -44,7 +44,7 @@
     <!-- Confirm Password -->
 
     <!-- User Name -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>User Name</mat-label>
       <input matInput ngModel name="hoTen" required #hoTen="ngModel"
         [pattern]='"^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$"' />
@@ -58,7 +58,7 @@
     <!-- User Name -->
 
     <!-- Mã Nhóm -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Mã Nhóm</mat-label>
       <mat-select ngModel name="maNhom" required #maNhom="ngModel">
         <mat-option *ngFor="let ma of arrMaNhom" value={{ma}}>{{ma}}</mat-option>
@@ -70,7 +70,7 @@
     <!-- Mã Nhóm -->
 
     <!-- Email -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput ngModel name="email" required #email="ngModel"
         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
@@ -84,7 +84,7 @@
     <!-- Email -->
 
     <!-- phone -->
-    <mat-form-field class="fieldInput">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Phone</mat-label>
       <input matInput ngModel name="soDt" required #soDt="ngModel" pattern="^[0-9]+$" />
     </mat-form-field>

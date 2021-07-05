@@ -19,8 +19,24 @@
   span {
     color: $red;
     font-size: $fs;
-  }
+  };
 }
+
+
+::ng-deep .mat-form-field-label {
+  color: black !important ;
+}
+::ng-deep .mat-form-field-underline {
+  background-color: $green !important ;
+}
+
+::ng-deep .mat-form-field-underline::before {
+  background-color: $green !important ;
+}
+::ng-deep .mat-form-field-ripple {
+  background-color: $green !important ;
+}
+
 // SigninComponent
 // SignupComponent
 // AdduserComponent

@@ -8,7 +8,9 @@
     <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
     <app-slider></app-slider>
     <main>
-        <mat-icon routerLink="/" style="color: #1fc58e; cursor: pointer; text-align: center;"> arrow_back</mat-icon>
+      <div class="comback" style=" text-align: center;">
+        <mat-icon routerLink="/" style="color: #1fc58e; cursor: pointer;">keyboard_return</mat-icon>
+      </div>
       <router-outlet></router-outlet>
     </main>
     <app-footer></app-footer>

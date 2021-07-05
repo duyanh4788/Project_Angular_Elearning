@@ -1,7 +1,7 @@
 <div class="container">
   <h1>List User</h1>
   <!-- maNhom -->
-  <mat-form-field class="selectSignUp">
+  <mat-form-field class="selectSignUp"appearance="fill" >
     <mat-label>Mã Nhóm</mat-label>
     <mat-select value="GP01">
       <mat-option *ngFor="let ma of arrMaNhom" value={{ma}} (click)="selectGroup(ma)">{{ma}}</mat-option>

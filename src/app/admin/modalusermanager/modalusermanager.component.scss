@@ -1,8 +1,8 @@
 @import "../../../assets/scss/modaladmin.scss";
 
 .example-large-box {
-  height: 600px;
-  width: 500px;
+  max-height: 600px;
+  max-width: 500px;
 }
 @include modalAdmin;
 

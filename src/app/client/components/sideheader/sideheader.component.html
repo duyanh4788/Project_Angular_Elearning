@@ -51,17 +51,17 @@
   <ng-container *ngIf="userName; else notSignIn">
     <a>
       <mat-list-item [matMenuTriggerFor]="logout">
-        <mat-icon>account_circle</mat-icon> {{ userName.hoTen }}
+        <mat-icon class="iconHeader">account_circle</mat-icon> {{ userName.hoTen }}
       </mat-list-item>
       <mat-menu #logout="matMenu">
         <a mat-list-item (click)="onSidenavClose()">
           <button mat-menu-item (click)="infoUser()">
-            <mat-icon>info</mat-icon> Info User
+            <mat-icon class="iconHeader">info</mat-icon> Info User
           </button>
         </a>
         <a mat-list-item>
           <button mat-menu-item (click)="logOutUser()" routerLink="signin">
-            <mat-icon>logout</mat-icon>
+            <mat-icon class="iconHeader">logout</mat-icon>
             Logout
           </button>
         </a>
@@ -73,13 +73,13 @@
   <ng-template #notSignIn>
     <a mat-list-item (click)="onSidenavClose()">
       <button mat-menu-item class="nav-caption" routerLink="signin" routerLinkActive="routerActive">
-        <mat-icon>login</mat-icon>
+        <mat-icon class="iconHeader">login</mat-icon>
         Sing In
       </button>
     </a>
     <a mat-list-item (click)="onSidenavClose()">
       <button mat-menu-item class="nav-caption" routerLink="signup" routerLinkActive="routerActive">
-        <mat-icon>app_registration</mat-icon>
+        <mat-icon class="iconHeader">app_registration</mat-icon>
         Sign Up
       </button>
     </a>

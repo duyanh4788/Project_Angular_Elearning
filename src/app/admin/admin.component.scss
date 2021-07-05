@@ -1,10 +1,8 @@
-mat-sidenav {
-  width: 280px;
-  padding: 15px;
-}
+@import '../../assets/scss/variables.scss';
 
-.toolbar-spacer {
-  flex: 1 1 auto;
+mat-sidenav {
+  width: 200px;
+  padding: 15px;
 }
 main{
   margin: 50px 0;

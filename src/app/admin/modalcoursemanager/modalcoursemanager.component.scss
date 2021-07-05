@@ -1,9 +1,8 @@
-@import '../../../assets/scss/modaladmin.scss';
-
+@import "../../../assets/scss/modaladmin.scss";
 
 .example-large-box {
-  height: 450px;
-  width: 500px;
+  max-height: 450px;
+  max-width: 500px;
 }
 @include modalAdmin;
 /* active tab */

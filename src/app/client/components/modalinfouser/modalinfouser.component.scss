@@ -1,5 +1,5 @@
 @import "../../../../assets/scss/form.scss";
 .modal {
-  width: 500px;
+  max-width: 400px;
   @include form;
 }
