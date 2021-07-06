@@ -16,7 +16,6 @@ export class SigincourseService {
     // => core/guard/authadmin/auth.gurad.ts row 30  &&
     // authinforUser/authinfouser.guard.ts row 19
     // component/header/header.component row 38
-    // client/listcoursebycategory/listcoursebycategory.component row 71
     // client/components/infouser/infouser.component row 22
     // admin/infoadmin/infoadmin.component" row 26
     getCurrentUser(): any {

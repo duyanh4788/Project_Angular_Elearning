@@ -21,7 +21,7 @@
             <p>Ngày Học : {{course.ngayTao}}</p>
           </mat-card-content>
           <mat-card-actions>
-            <!-- truyền maKhoaHoc đến detail/detail.component.ts (result.maKhoaHoc) -->
+            <!-- post maKhoaHoc => detail/detail.component.ts (result.maKhoaHoc) -->
             <button mat-button routerLink="/detail-course/{{course.maKhoaHoc}}">Chi Tiết</button>
             <button mat-button (click)="getDetailCourse(course)">Mô Tả</button>
           </mat-card-actions>

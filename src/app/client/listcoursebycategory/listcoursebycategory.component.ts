@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { RegisteredService } from '@service/registeredcourse/registered.service';
-import { SigincourseService } from '@service/signinCourse/sigincourse.service';
 import { SharelistcoursebycategoryService } from '@shared/shareData/shareListCourseByCategory/sharelistcoursebycategory.service';
 import { SharemodalcourseService } from '@shared/shareData/shareModalCourse/sharemodalcourse.service';
 import { Subscription } from 'rxjs';
@@ -32,9 +30,7 @@ export class ListcoursebycategoryComponent implements OnInit {
   constructor(
     private shareListCourseByCategoryService: SharelistcoursebycategoryService,
     private shareModalService: SharemodalcourseService,
-    private siginCourseService: SigincourseService,
     private modalDetail: MatDialog,
-    private registeredService: RegisteredService,
     private activated: ActivatedRoute,
   ) {
     // pagination
@@ -53,30 +49,20 @@ export class ListcoursebycategoryComponent implements OnInit {
   // nhận data => shared/shareData/listCourseByCategory/listcoursebycategory.service
   // từ components/header/header.component => render html
   getCateGoryCourseService() {
-    this.shareListCourseByCategoryService.shareListCourseByCategory.subscribe(
-      (data) => {
-        this.listCoursByCategory = data;
-      }
-    );
+    this.subscription.add(
+      this.shareListCourseByCategoryService.shareListCourseByCategory.subscribe(
+        (data) => {
+          this.listCoursByCategory = data;
+        }
+      )
+    )
   }
   // lấy object course từ  (click)="getDetailCourse(course)" row 23 html
   getDetailCourse(course: object) {
     this.shareModalService.getModalCourse(course); // lưu data shared/shareData/shareModalCourse/sharemodalcourse.service
     this.modalDetail.open(ModaldetailcourseComponent); // // mở client/components/modaldetailcourse/modaldetailcourse.component.html
   }
-  // registererCourse => phương thúc post taọ từ core/services/registerercourse/registerer.service.ts row 13
-  // getCurrentUser => lấy data từ service/signinCourse/sigincourse.service row 13
-  registererCourses() {
-    let userSignIn = this.siginCourseService.getCurrentUser()
-    const infoUpdate = { ...this.infoRegisterer };
-    infoUpdate.maKhoaHoc = this.maKhoaHoc;
-    infoUpdate.taiKhoan = userSignIn.taiKhoan;
-    this.subscription.add(this.registeredService.registeredCourse(infoUpdate).subscribe((data) => {
-      console.log(data);
-    }, err => {
-      alert(err.error)
-    }))
-  }
+
   // nhận maDanhMuc
   getCodeCategory() {
     this.activated.params.subscribe(data => {

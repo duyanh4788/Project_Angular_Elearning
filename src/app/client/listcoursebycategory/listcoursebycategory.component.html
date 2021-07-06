@@ -26,9 +26,10 @@
           <p>Ngày Học : {{ course.ngayTao }}</p>
           <p>Mô Tả : {{ course.moTa | shortcut : 50}}</p>
         </mat-card-content>
-        <mat-card-actions align="start">
-          <button mat-button (click)="registererCourses()">Đăng Ký</button>
-          <button mat-button (click)="getDetailCourse(course)">Xem Nhanh</button>
+        <mat-card-actions>
+          <!-- post maKhoaHoc => detail/detail.component.ts (result.maKhoaHoc) -->
+          <button mat-button routerLink="/detail-course/{{course.maKhoaHoc}}">Chi Tiết</button>
+          <button mat-button (click)="getDetailCourse(course)">Mô Tả</button>
         </mat-card-actions>
       </mat-card>
     </div>

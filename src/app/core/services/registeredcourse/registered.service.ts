@@ -9,7 +9,7 @@ import { ApiService } from '../dataService/api.service';
 export class RegisteredService {
     // refactor service => DataService services/dataService/data.service.ts
     constructor(private apiService: ApiService) { }
-    // sử dụng cho component && infoRegisterer nhận từ client/detail/detail.component.ts row 39 
+    // =>  client/detail/detail.component.ts row 39 
     // RegistedCourse // gán model từ core/models/course.ts row 30
     registeredCourse(infoRegistered: object): Observable<RegistedCourse> {
         let url = "QuanLyKhoaHoc/DangKyKhoaHoc";
