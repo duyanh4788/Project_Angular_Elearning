@@ -11,11 +11,12 @@ export class ListcoursemanagerService {
     // refactor service => DataService services/dataService/data.service.ts
     constructor(private apiService: ApiService) { }
 
-    // selectGroup(24) && selectGroupDefault(31) => admin/course-management/course-management.component
+    // => admin/course-management/course-management.component
+    // => component admin/infoadmin/infoadmin.component.ts row 60 & 70
     // CourseManager => models/courseManager
-    getListCourseManagerPage(maNhom: string): Observable<CourseManager> {
-        let url = `QuanLyKhoaHoc/LayDanhSachKhoaHoc_PhanTrang?page=1&pageSize=10&MaNhom=${maNhom}`;
-        return this.apiService.getApi<CourseManager>(url)
+    getListCourseManagerPage(maNhom: string): Observable<CourseManager[]> {
+        let url = `QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=${maNhom}`;
+        return this.apiService.getApi<CourseManager[]>(url)
     }
 
 }

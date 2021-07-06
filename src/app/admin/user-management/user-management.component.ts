@@ -61,8 +61,6 @@ export class UserManagementComponent implements OnInit {
   selectGroup(maNhom: string) {
     this.maNhom = maNhom
     this.subscription.add(this.listuserService.getListUser(maNhom).subscribe((data) => {
-      console.log(data);
-
       this.arrListUser.data = data;
     }))
   }
@@ -70,8 +68,6 @@ export class UserManagementComponent implements OnInit {
   selectGroupDefault() {
     this.maNhom = 'GP01'
     this.listuserService.getListUser(this.maNhom).subscribe((data) => {
-      console.log(data);
-
       this.arrListUser.data = data;
     });
   }

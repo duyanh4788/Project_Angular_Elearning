@@ -9,7 +9,8 @@ import { ApiService } from '../../dataService/api.service';
 export class ListuserService {
     // refactor service => DataService services/dataService/data.service.ts
     constructor(private apiService: ApiService) { }
-    //sử dụng cho && (maNhom) nhận từ => component admin/user-management/user-management.component.ts row 52
+    // => component admin/infoadmin/infoadmin.component.ts row 57 & 67 
+    // => component admin/user-management/user-management.component.ts row 52
     //ListUser đôí tương taọ từ /models/client.ts row 14
     getListUser(maNhom: string): Observable<ListUserTableManager[]> {
         let url = `QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${maNhom}`;

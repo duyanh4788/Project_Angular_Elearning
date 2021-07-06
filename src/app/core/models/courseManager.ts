@@ -1,14 +1,6 @@
 // ourseManager!: CourseManager => admin/course-management/course-management.component
 // Observable => service/listCourseManager/listCourseManager.service
 export interface CourseManager {
-  currentPage: number;
-  count: number;
-  totalPages: number;
-  totalCount: number;
-  items: Item[];
-}
-// +
-export interface Item {
   maKhoaHoc: string;
   biDanh: string;
   tenKhoaHoc: string;

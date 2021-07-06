@@ -35,13 +35,14 @@ export class SigninComponent implements OnInit {
       localStorage.setItem('userSignIn', JSON.stringify(data)); // lưu data localstrogate
       this.siginCourseService.setCurrentUser(data); // nhận data vào core/services/signcourse/sigincourse.service.ts row 19
 
-      // ?
+      // successUrl => sigin admin && registererCourses()
       const { successUrl } = this.activatedRoute.snapshot.queryParams;
       if (successUrl) {
         this.router.navigate([successUrl])
       } else {
         this.router.navigate(['/'])
       }
+
     }, err => {
       this.notiFy = err.error
       this.loadingService.show()
@@ -52,3 +53,8 @@ export class SigninComponent implements OnInit {
     });
   }
 }
+// signin?successUrl=%5Bobject%20Object%5D
+
+// signin?successUrl=%5Bobject%20Object%5D
+
+// signin?successUrl=%2Fdetail-course%2FAngular01

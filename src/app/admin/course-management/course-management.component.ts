@@ -15,9 +15,8 @@ import { ModalcoursemanagerComponent } from '../modalcoursemanager/modalcoursema
 })
 export class CourseManagementComponent implements OnInit {
 
-  public courseManager!: CourseManager;// models/courseManager
   public infoCourse!: InfoCourse;// models/courseManager
-  public listCoursePage: Array<any> = []; // array render html
+  public listCoursePage!: CourseManager[]; // array render html
 
   constructor(
     private listCourseManagerService: ListcoursemanagerService,
@@ -38,8 +37,7 @@ export class CourseManagementComponent implements OnInit {
   // get data => service/listCourseManager/listCourseManager.service
   selectGroup(maNhom: string) {
     this.listCourseManagerService.getListCourseManagerPage(maNhom).subscribe(data => {
-      this.courseManager = data
-      this.listCoursePage = this.courseManager.items
+      this.listCoursePage = data
     }, err => {
       alert(err.error)
     })
@@ -48,8 +46,7 @@ export class CourseManagementComponent implements OnInit {
   selectGroupDefault() {
     let maNhom = 'GP01'
     this.listCourseManagerService.getListCourseManagerPage(maNhom).subscribe(data => {
-      this.courseManager = data
-      this.listCoursePage = this.courseManager.items
+      this.listCoursePage = data
     })
   }
 
