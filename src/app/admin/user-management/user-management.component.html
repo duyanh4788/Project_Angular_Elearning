@@ -1,7 +1,7 @@
 <div class="container">
   <h1>List User</h1>
   <!-- maNhom -->
-  <mat-form-field class="selectSignUp"appearance="fill" >
+  <mat-form-field class="selectSignUp" appearance="fill">
     <mat-label>Mã Nhóm</mat-label>
     <mat-select value="GP01">
       <mat-option *ngFor="let ma of arrMaNhom" value={{ma}} (click)="selectGroup(ma)">{{ma}}</mat-option>
@@ -10,7 +10,7 @@
   <!-- maNhom -->
 
   <!-- search -->
-  <mat-form-field class="filter">
+  <mat-form-field class="filter" appearance="fill">
     <mat-label>Lọc Danh Sách</mat-label>
     <input (keyup)="findFilter($event)" matInput />
   </mat-form-field>
@@ -20,7 +20,6 @@
   <form #formSearchApi="ngForm" (ngSubmit)="handleSubmit()">
     <input type="text" placeholder=" Tìm Người Dùng API " class="searchApi" ngModel name="searchApi">
   </form>
-
   <!-- search api -->
 
   <h4>{{notify}}</h4>

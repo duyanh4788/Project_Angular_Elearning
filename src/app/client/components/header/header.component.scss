@@ -37,16 +37,7 @@ mat-toolbar {
 .mat-menu-item .mat-icon {
   color: $green;
 }
-::ng-deep .mat-progress-bar-fill::after {
-  background-color: $green;
-}
-::ng-deep .mat-progress-bar-buffer {
-  background: $white;
-}
 
-::ng-deep .selectSearch {
-  font-size: $fs;
-}
 
 ::ng-deep .menuCategory {
   min-width: 300px !important;
@@ -69,16 +60,4 @@ mat-toolbar {
 
 ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
   height: 0 !important;
-}
-
-::ng-deep .mat-primary::-webkit-scrollbar {
-  width: 6px;
-}
-::ng-deep .mat-primary::-webkit-scrollbar-thumb {
-  background: $white;
-  border-radius: 10px;
-}
-::ng-deep .mat-primary::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px $white;
-  border-radius: 10px;
 }

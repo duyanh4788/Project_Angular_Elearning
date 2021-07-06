@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { DeletecourseService } from '@service/courseManagerService/deleteCourseManager/deletecourse.service';
 import { ListcoursemanagerService } from '@service/courseManagerService/listCourseManager/listcoursemanager.service';
@@ -15,8 +18,13 @@ import { ModalcoursemanagerComponent } from '../modalcoursemanager/modalcoursema
 })
 export class CourseManagementComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator; // material angular paginator
+  @ViewChild(MatSort, { static: true }) sort!: MatSort; // material angular sort
+
   public infoCourse!: InfoCourse;// models/courseManager
-  public listCoursePage!: CourseManager[]; // array render html
+  public ELEMENT_DATA!: CourseManager[]; //ListUser đôí tương taọ từ /models/client.ts row 14
+  public listCoursePage = new MatTableDataSource(this.ELEMENT_DATA);// dùng cho sort + paginator
+  public notify: string = "" // thông báo delete
 
   constructor(
     private listCourseManagerService: ListcoursemanagerService,
@@ -34,10 +42,21 @@ export class CourseManagementComponent implements OnInit {
     this.selectGroupDefault()//render html GP01
   }
 
-  // get data => service/listCourseManager/listCourseManager.service
+  ngAfterViewInit() {
+    this.listCoursePage.paginator = this.paginator; // material angular
+    this.listCoursePage.sort = this.sort; // material angular
+  }
+
+  findFilter(find: any) {
+    //  (keyup)="findFilter($event)" => course-management.component.html row 5
+    this.listCoursePage.filter = find.target.value.trim().toLowerCase();
+  }
+
+  // getListCourseManagerPage (get api) => service/listCourseManager/listCourseManager.service
+  // (click)="selectGroup(ma)" => course-management.component.html
   selectGroup(maNhom: string) {
     this.listCourseManagerService.getListCourseManagerPage(maNhom).subscribe(data => {
-      this.listCoursePage = data
+      this.listCoursePage.data = data
     }, err => {
       alert(err.error)
     })
@@ -46,19 +65,23 @@ export class CourseManagementComponent implements OnInit {
   selectGroupDefault() {
     let maNhom = 'GP01'
     this.listCourseManagerService.getListCourseManagerPage(maNhom).subscribe(data => {
-      this.listCoursePage = data
+      this.listCoursePage.data = data
     })
   }
 
   // deleteApi => service/courseManagerService/deleteCourseManager/deletecourse.service
   // maNhom => (click)="deleteCourse(course.maKhoaHoc)" html
-  // code logic clone this.listCoursePage => xoá ok remove item & render html
+  // code logic clone this.listCoursePage.data => xoá ok remove item & render html
   deleteCourse(maKhoaHoc: string) {
     this.deleteCourseService.deleteCourseManagerPage(maKhoaHoc).subscribe(data => {
-      let cloneArray = [...this.listCoursePage]
+      let cloneArray = [...this.listCoursePage.data]
       let index = cloneArray.findIndex(item => item.maKhoaHoc === maKhoaHoc)
       cloneArray.splice(index, 1)
-      this.listCoursePage = cloneArray
+      this.listCoursePage.data = cloneArray
+    }, err => {
+      if (err) {
+        this.notify = err.error // xuất thông báo nếu user đã ghi danh
+      }
     })
   }
 

@@ -22,3 +22,61 @@ $fxl: 17px;
     border: 1px solid $green;
   }
 }
+
+/* lable imput formfield */
+::ng-deep .mat-form-field-label {
+  color: black !important ;
+}
+/* line imput formfield */
+::ng-deep .mat-form-field-underline {
+  background-color: $green !important ;
+}
+::ng-deep .mat-form-field-underline::before {
+  background-color: $green !important ;
+}
+::ng-deep .mat-form-field-ripple {
+  background-color: $green !important ;
+}
+
+/* scroll maNhom */
+::ng-deep .mat-primary::-webkit-scrollbar {
+  width: 6px;
+}
+::ng-deep .mat-primary::-webkit-scrollbar-thumb {
+  background: $white;
+  border-radius: 10px;
+}
+::ng-deep .mat-primary::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $white;
+  border-radius: 10px;
+}
+
+
+/* active tab */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: #f7f7f7;
+}
+/* ink bar tab*/
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #1fc58e;
+}
+
+// slider track listcoursecategory
+::ng-deep .mat-accent .mat-slider-track-fill,
+::ng-deep .mat-accent .mat-slider-thumb,
+::ng-deep .mat-slider-thumb-label {
+  background-color: #1fc58e !important;
+}
+
+
+// process bar header
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: $green;
+}
+::ng-deep .mat-progress-bar-buffer {
+  background: $white;
+}
+::ng-deep .selectSearch {
+  font-size: $fs;
+}

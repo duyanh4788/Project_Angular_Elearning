@@ -4,13 +4,22 @@
     <button mat-button (click)="addCourse()">Thêm Khoá Học</button><br>
   </div>
   <!-- maNhom -->
-  <mat-form-field class="selectSignUp">
+  <mat-form-field class="selectSignUp" appearance="fill">
     <mat-label>Mã Nhóm</mat-label>
     <mat-select value="GP01">
       <mat-option *ngFor="let ma of arrMaNhom" value={{ma}} (click)="selectGroup(ma)">{{ma}}</mat-option>
     </mat-select>
   </mat-form-field>
   <!-- maNhom -->
+
+  <!-- search -->
+  <mat-form-field class="filter" appearance="fill">
+    <mat-label>Lọc Danh Sách</mat-label>
+    <input (keyup)="findFilter($event)" matInput />
+  </mat-form-field>
+  <!-- search -->
+
+  <h4>{{notify}}</h4>
 
   <table mat-table class="mat-elevation-z8" [dataSource]="listCoursePage">
 
@@ -72,4 +81,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <mat-paginator [pageSizeOptions]="[10,15, 20]" showFirstLastButtons></mat-paginator>
 </div>

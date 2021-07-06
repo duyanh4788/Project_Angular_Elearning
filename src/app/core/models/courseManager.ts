@@ -1,17 +1,17 @@
 // ourseManager!: CourseManager => admin/course-management/course-management.component
 // Observable => service/listCourseManager/listCourseManager.service
 export interface CourseManager {
-  maKhoaHoc: string;
-  biDanh: string;
-  tenKhoaHoc: string;
-  moTa: string;
-  luotXem: number;
-  hinhAnh: string;
-  maNhom: string;
-  ngayTao: string;
-  soLuongHocVien: number;
-  nguoiTao: NguoiTAO;
-  danhMucKhoaHoc: DanhMucKhoaHoc;
+  maKhoaHoc?: string;
+  biDanh?: string;
+  tenKhoaHoc?: string;
+  moTa?: string;
+  luotXem?: number;
+  hinhAnh?: string;
+  maNhom?: string;
+  ngayTao?: string;
+  soLuongHocVien?: number;
+  nguoiTao?: NguoiTAO;
+  danhMucKhoaHoc?: DanhMucKhoaHoc;
 }
 // +
 export interface DanhMucKhoaHoc {

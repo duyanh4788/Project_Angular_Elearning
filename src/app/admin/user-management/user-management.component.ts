@@ -23,7 +23,7 @@ export class UserManagementComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort!: MatSort; // material angular sort
   @ViewChild(MatPaginator) paginator!: MatPaginator; // material angular paginator
 
-  public ELEMENT_DATA!: ListUserTableManager[]; //ListUser đôí tương taọ từ /models/client.ts row 14
+  public ELEMENT_DATA!: ListUserTableManager[]; //ListUser => /models/client.ts row 14
   public arrListUser = new MatTableDataSource(this.ELEMENT_DATA); // dùng cho sort + paginator
 
   public maNhom: string = "" // get value maNhom
@@ -47,17 +47,16 @@ export class UserManagementComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    // material angular
-    this.arrListUser.paginator = this.paginator;
-    this.arrListUser.sort = this.sort;
+    this.arrListUser.paginator = this.paginator; // material angular
+    this.arrListUser.sort = this.sort; // material angular
   }
   findFilter(find: any) {
-    // material angular => sự kiện keyup từ user-management.component.html row 5
+    //  (keyup)="findFilter($event)" => user-management.component.html row 5
     this.arrListUser.filter = find.target.value.trim().toLowerCase();
   }
 
-  // GetListUser => phương thức get taọ từ services/getlistuser.service.ts row 15
-  // maNhom => lấy từ (click)="selectGroup(ma)" => user-management.component.html
+  // GetListUser (get api) => services/getlistuser.service.ts row 15
+  // (click)="selectGroup(ma)" => user-management.component.html
   selectGroup(maNhom: string) {
     this.maNhom = maNhom
     this.subscription.add(this.listuserService.getListUser(maNhom).subscribe((data) => {
@@ -72,8 +71,8 @@ export class UserManagementComponent implements OnInit {
     });
   }
 
-  // deleteUser => phương thức delete taọ từ core/services/deleteUser/deleteuser.service.ts row 15 ,
-  // taiKhoan => lấy từ (click)="deleteUsers(user.taiKhoan)" => user-management.component.html
+  // deleteUser (deleteApi) => core/services/deleteUser/deleteuser.service.ts row 15 ,
+  // (click)="deleteUsers(user.taiKhoan)" => user-management.component.html
   deleteUsers(taiKhoans: string) {
     this.deleteuserService.deleteUser(taiKhoans).subscribe((success) => {
       if (success) {

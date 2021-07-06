@@ -6,13 +6,3 @@
 }
 @include modalAdmin;
 
-/* active tab */
-::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
-  background-color: #f7f7f7;
-}
-
-/* ink bar */
-::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
-.mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: #1fc58e;
-}
