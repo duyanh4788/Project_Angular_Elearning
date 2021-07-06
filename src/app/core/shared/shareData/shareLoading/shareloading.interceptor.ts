@@ -23,8 +23,6 @@ export class ShareloadingInterceptor implements HttpInterceptor {
         if (this.requestCount === 0) {
             this.loadingService.show()
         }
-        console.log(this.requestCount);
-        
         return next.handle(request).pipe(
             finalize(() => {
                 this.requestCount -= 1

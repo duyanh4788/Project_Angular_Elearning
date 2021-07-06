@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EditusermanagerService } from '@service/modalUserService/editUserManager/editusermanager.service';
 import { SharemodalusermanagerService } from '@shared/shareData/shareModalUserManager/sharemodalusermanager.service';
-import { ListUserManager } from 'src/app/core/models/client';
+import { UpdatetUserManager } from 'src/app/core/models/client';
 import { UserManagementComponent } from '../../user-management/user-management.component';
+import ValidationMatchPass from './validationMatch';
 
 @Component({
   selector: 'app-updateuser',
@@ -14,7 +15,7 @@ import { UserManagementComponent } from '../../user-management/user-management.c
 
 export class UpdateuserComponent implements OnInit {
 
-  public listUser!: ListUserManager; // model
+  public listUser!: UpdatetUserManager; // model
   public maNguoiDung: string = "" // get value maNguoiDung html
   public maNhom: string = "" // get value maNhom
   formEditUser: any; // tag form any ?
@@ -52,17 +53,22 @@ export class UpdateuserComponent implements OnInit {
     this.formEditUser = new FormGroup({
       'taiKhoan': new FormControl(this.listUser.taiKhoan, [Validators.required]),
       'hoTen': new FormControl(this.listUser.hoTen, [Validators.required]),
+      'matKhau': new FormControl(this.listUser.matKhau, [Validators.required]),
+      'conFirmMatKhau': new FormControl(null, [Validators.required]),
       'email': new FormControl(this.listUser.email, [Validators.required]),
       'maNhom': new FormControl(this.listUser.maNhom, [Validators.required]),
       'soDT': new FormControl(this.listUser.soDt, [Validators.required]),
       'maLoaiNguoiDung': new FormControl(this.listUser.maLoaiNguoiDung),
+    }, {
+      // ValidationMatchPass => import ./validationMatch.ts
+      validators: [ValidationMatchPass.match('matKhau', 'conFirmMatKhau')]
     })
   }
+
   // change getMaNguoiDung(event: any) html
   getMaNguoiDung(event: any) {
     this.maNguoiDung = event.target.value
   }
-
 
   // putApiService => put service/editUserManager/editusermanager.service
   handleEditInfoUser() {
@@ -74,6 +80,7 @@ export class UpdateuserComponent implements OnInit {
     }
     this.formEditUser.value.maLoaiNguoiDung = this.maNguoiDung
     this.editUserManagerService.putEditService(this.formEditUser.value).subscribe(data => {
+      console.log(data);
       this.listUser.email = this.formEditUser.value.email
       this.listUser.hoTen = this.formEditUser.value.hoTen;
       this.listUser.maLoaiNguoiDung = this.formEditUser.value.maLoaiNguoiDung;

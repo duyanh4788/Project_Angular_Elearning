@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListcourseregistrationService } from '@service/modalUserService/listCourseRegistration/listCourseregistration.service';
 import { SharemodalusermanagerService } from '@shared/shareData/shareModalUserManager/sharemodalusermanager.service';
-import { ListUserManager } from 'src/app/core/models/client';
+import { UserRegister } from 'src/app/core/models/client';
 import { ListCouseRegisteds, ListCouseUnRegisteds, ListWaitApproval, ThongTinGhiDanh } from 'src/app/core/models/listCourseUnRegisted';
 
 @Component({
@@ -14,7 +14,7 @@ export class UserregisterComponent implements OnInit {
 
   panelOpenState = false; // material open expansion
 
-  public listUser!: ListUserManager; // model dùng call api
+  public listUser!: UserRegister; // model dùng call api
   public listCourseUnregisted: ListCouseUnRegisteds[] = []; // model render html
   public listCourseRegisted: ListCouseRegisteds[] = []; // model render html
   public listWaitApproval: ListWaitApproval[] = []; // model render html

@@ -5,80 +5,109 @@
   <form [formGroup]="formEditUser" (ngSubmit)="handleEditInfoUser()">
 
     <!-- tài khoản -->
-    <mat-form-field class="fieldInput"appearance="fill">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Account</mat-label>
       <input type="text" matInput disabled value={{listUser.taiKhoan}}>
 
       <!-- check empty -->
-      <ng-container *ngIf="formEditUser.get('taiKhoan').invalid && formEditUser.get('taiKhoan').touched">
-        <span *ngIf="formEditUser.get('taiKhoan').errors['required']">
-          Do Not Empty !
-        </span>
-      </ng-container>
+      <span *ngIf="formEditUser.get('taiKhoan').hasError('required') && formEditUser.get('taiKhoan').touched">
+        Do Not Empty !
+      </span>
       <!-- check empty -->
 
     </mat-form-field>
     <!-- tài khoản -->
 
+    <!-- Mật Khẩu -->
+    <mat-form-field class="fieldInput" appearance="fill">
+      <mat-label>Mật Khẩu Mới</mat-label>
+      <input type="text" matInput formControlName="matKhau">
+
+      <!-- check empty -->
+      <span *ngIf="formEditUser.get('matKhau').hasError('required') && formEditUser.get('matKhau').touched">
+        Do Not Empty !
+      </span>
+      <!-- check empty -->
+
+    </mat-form-field>
+    <!-- Mật Khẩu -->
+
+    <!-- Confirm Mật Khẩu -->
+    <mat-form-field class="fieldInput" appearance="fill">
+      <mat-label>Xác Nhận Mật Khẩu</mat-label>
+      <input type="text" matInput formControlName="conFirmMatKhau">
+
+      <!-- check empty -->
+      <span
+        *ngIf="formEditUser.get('conFirmMatKhau').hasError('required') && formEditUser.get('conFirmMatKhau').touched">
+        Do Not Empty !
+      </span>
+      <!-- check empty -->
+
+      <!-- check match -->
+      <span
+        *ngIf=" formEditUser.get('conFirmMatKhau').hasError('matching') && formEditUser.get('conFirmMatKhau').touched">
+       Password Not Match
+      </span>
+      <!-- check match -->
+
+    </mat-form-field>
+
+    <!-- Confirm Mật Khẩu  -->
+
     <!-- User Name -->
-    <mat-form-field class="fieldInput"appearance="fill">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>User Name</mat-label>
       <input type="text" matInput formControlName="hoTen">
 
       <!-- check empty -->
-      <ng-container *ngIf="formEditUser.get('hoTen').invalid && formEditUser.get('hoTen').touched">
-        <span *ngIf="formEditUser.get('hoTen').errors['required']">
-          Do Not Empty !
-        </span>
-      </ng-container>
+      <span *ngIf="formEditUser.get('hoTen').hasError('required') && formEditUser.get('hoTen').touched">
+        Do Not Empty !
+      </span>
       <!-- check empty -->
 
     </mat-form-field>
     <!-- User Name -->
 
     <!-- Mã Nhóm -->
-    <mat-form-field class="fieldInput"appearance="fill">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Mã Nhóm</mat-label>
       <mat-select disabled value={{listUser.maNhom}}>
         <mat-option *ngFor="let ma of arrMaNhom" value={{ma}}>{{ma}}</mat-option>
       </mat-select>
 
       <!-- check empty -->
-      <ng-container *ngIf="formEditUser.get('maNhom').invalid && formEditUser.get('maNhom').touched">
-        <span *ngIf="formEditUser.get('maNhom').errors['required']">Do Not Empty !</span>
-      </ng-container>
+      <span *ngIf="formEditUser.get('maNhom').hasError('required') && formEditUser.get('maNhom').touched">
+        Do Not Empty !
+      </span>
       <!-- check empty -->
 
     </mat-form-field>
     <!-- Mã Nhóm -->
 
     <!-- Email -->
-    <mat-form-field class="fieldInput"appearance="fill">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Email</mat-label>
       <input type="text" matInput formControlName="email">
 
       <!-- check empty -->
-      <ng-container *ngIf="formEditUser.get('email').invalid && formEditUser.get('email').touched">
-        <span *ngIf="formEditUser.get('email').errors['required']">
-          Do Not Empty !
-        </span>
-      </ng-container>
+      <span *ngIf="formEditUser.get('email').hasError('required') && formEditUser.get('email').touched">
+        Do Not Empty !
+      </span>
       <!-- check empty -->
 
     </mat-form-field>
     <!-- Email -->
 
     <!-- phone -->
-    <mat-form-field class="fieldInput"appearance="fill">
+    <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>phone</mat-label>
       <input type="text" matInput formControlName="soDT">
 
       <!-- check empty -->
-      <ng-container *ngIf="formEditUser.get('soDT').invalid && formEditUser.get('soDT').touched">
-        <span *ngIf="formEditUser.get('soDT').errors['required']">
-          Do Not Empty !
-        </span>
-      </ng-container>
+      <span *ngIf="formEditUser.get('soDT').hasError('required') && formEditUser.get('soDT').touched">
+        Do Not Empty !
+      </span>
       <!-- check empty -->
 
     </mat-form-field>

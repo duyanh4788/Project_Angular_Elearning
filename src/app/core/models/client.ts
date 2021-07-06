@@ -20,10 +20,20 @@ export interface ListUserTableManager {
   maLoaiNguoiDung: string;
 }
 
-// src/app/admin/modalusermanager/userregister/userregister.component
 // src/app/admin/modalusermanager/updateuser/updateuser.component
 // Observable => service/editUserManager/editusermanager.service";
-export interface ListUserManager {
+export interface UpdatetUserManager {
+  email?: string;
+  hoTen?: string;
+  matKhau?: string;
+  taiKhoan?: string;
+  maLoaiNguoiDung?: string;
+  maNhom?: string;
+  soDt?: string;
+}
+
+// src/app/admin/modalusermanager/userregister/userregister.component
+export interface UserRegister {
   email?: string;
   hoTen?: string;
   taiKhoan?: string;
