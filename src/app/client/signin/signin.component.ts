@@ -13,10 +13,9 @@ import { SigincourseService } from 'src/app/core/services/signinCourse/sigincour
 
 export class SigninComponent implements OnInit {
 
-  @ViewChild('formSignIn') formSignIn!: NgForm; // lâý giá trị từ ngForm signin.component.html
+  @ViewChild('formSignIn') formSignIn!: NgForm; // ngForm signin.component.html
   public signIns?: UserSigIn;
   public notiFy: string = ""
-  //siginCourseService => goị class từ core/services/signcourse/sigincourse.service.ts
 
   constructor(
     private siginCourseService: SigincourseService,
@@ -26,14 +25,17 @@ export class SigninComponent implements OnInit {
   ) { }
 
   ngOnInit(): void { }
-  // sigincourseService => phương thức post taọ từ core/services/signinCourse/signinCourse.service.ts row 32 có alert nêú đăng nhập sai
+  // sigincourseService (post api) =>  core/services/signinCourse/signinCourse.service.ts row 32 có alert nêú đăng nhập sai
   handleSignIn() {
-    // users => giá trị lấy từ form signin.component.html row 3
+    // users => form signin.component.html row 3
     this.siginCourseService.signInUser(this.formSignIn.value).subscribe((data) => {
       this.signIns = data;
       alert(' Hello ' + data.hoTen);
-      localStorage.setItem('userSignIn', JSON.stringify(data)); // lưu data localstrogate
-      this.siginCourseService.setCurrentUser(data); // nhận data vào core/services/signcourse/sigincourse.service.ts row 19
+      localStorage.setItem('userSignIn', JSON.stringify(data)); // save data localstrogate (get token )
+      this.siginCourseService.setCurrentUser(data); // post data object core/services/signcourse/sigincourse.service.ts row 21
+      
+      localStorage.setItem('userName', JSON.stringify(data.hoTen)); // save data localstrogate ( get hoTen show name header)
+      this.siginCourseService.setCurrentUserName(data.hoTen); // post data userName core/services/signcourse/sigincourse.service.ts row 53
 
       // successUrl => sigin admin && registererCourses()
       const { successUrl } = this.activatedRoute.snapshot.queryParams;
@@ -53,8 +55,3 @@ export class SigninComponent implements OnInit {
     });
   }
 }
-// signin?successUrl=%5Bobject%20Object%5D
-
-// signin?successUrl=%5Bobject%20Object%5D
-
-// signin?successUrl=%2Fdetail-course%2FAngular01

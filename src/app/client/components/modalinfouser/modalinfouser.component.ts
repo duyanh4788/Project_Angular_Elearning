@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EditinfouserService } from '@service/editInfoUser/editinfouser.service';
 import { InforuserService } from '@service/inforuser/inforuser.service';
+import { SigincourseService } from '@service/signinCourse/sigincourse.service';
 import { SharemodalinfouserService } from '@shared/shareData/shareModalInfoUser/sharemodalinfouser.service';
 import { EditUser } from 'src/app/core/models/inforUser';
 import { InfouserComponent } from '../infouser/infouser.component';
@@ -28,6 +29,7 @@ export class ModalinfouserComponent implements OnInit {
     private editInfouserService: EditinfouserService,
     private modalInfoUer: MatDialog,
     private inforuserService: InforuserService,
+    private siginCourseService: SigincourseService,
   ) { }
 
   ngOnInit(): void {
@@ -67,6 +69,8 @@ export class ModalinfouserComponent implements OnInit {
       this.inFoUser.taiKhoan = this.formEdit.value.taiKhoan;
       console.log(data);
       this.inforuserService.setInforUser(this.inFoUser)
+      // setstate hoTen show name header * sidehedader => service/signinCourse/sigincourse.service
+      this.siginCourseService.setCurrentUserName(this.inFoUser.hoTen)
     })
     this.modalInfoUer.closeAll() // colse modal
   }

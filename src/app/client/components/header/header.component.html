@@ -48,7 +48,7 @@
     <!-- if -->
     <ng-container *ngIf="userName else notSignIn">
       <button mat-button [matMenuTriggerFor]="logout">
-        <mat-icon class="iconHeader">account_circle</mat-icon> {{userName.hoTen}}
+        <mat-icon class="iconHeader">account_circle</mat-icon> {{userName}}
       </button>
       <mat-menu #logout="matMenu">
         <button mat-menu-item (click)="infoUser()">

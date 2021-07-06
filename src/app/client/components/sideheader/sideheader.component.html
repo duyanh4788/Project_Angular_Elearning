@@ -51,7 +51,7 @@
   <ng-container *ngIf="userName; else notSignIn">
     <a>
       <mat-list-item [matMenuTriggerFor]="logout">
-        <mat-icon class="iconHeader">account_circle</mat-icon> {{ userName.hoTen }}
+        <mat-icon class="iconHeader">account_circle</mat-icon> {{ userName }}
       </mat-list-item>
       <mat-menu #logout="matMenu">
         <a mat-list-item (click)="onSidenavClose()">

@@ -83,8 +83,8 @@ export class HeaderComponent implements OnInit {
   }
   // getUserNameSignIn show username after sigin
   getUserNameSignIn() {
-    //  get data localStorage => core/service/signinCourse/signincouse.service.ts row 13
-    this.siginCourseService.currentUser.subscribe(data => {
+    //  get data hoTen localStorage => core/service/signinCourse/signincouse.service.ts row 50
+    this.siginCourseService.shareUserName.subscribe(data => {
       this.userName = data
     })
   }
