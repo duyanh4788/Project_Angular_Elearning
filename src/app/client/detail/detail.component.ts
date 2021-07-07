@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { DetailCourse, RegistedCourse } from 'src/app/core/models/course';
 import { InfocourseService } from 'src/app/core/services/infoCourse/infocourse.service';
 import { RegisteredService } from '@service/registeredcourse/registered.service';
+import { SigincourseService } from '@service/signinCourse/sigincourse.service';
 
 @Component({
   selector: 'app-detail',
@@ -21,6 +22,7 @@ export class DetailComponent implements OnInit {
     private activated: ActivatedRoute,
     private infocourseService: InfocourseService,
     private registeredService: RegisteredService,
+    private siginCourseService : SigincourseService,
   ) { }
 
   ngOnInit(): void {
@@ -47,10 +49,10 @@ export class DetailComponent implements OnInit {
   }
   // registererCourse => phương thúc post taọ từ core/services/registerercourse/registerer.service.ts row 13
   registererCourses() {
-    let userSignIn = JSON.parse(localStorage.getItem('userSignIn') || '{}');
+    let taiKhoan = this.siginCourseService.getCurrentAccount()
     const infoUpdate = { ...this.infoRegisterer };
     infoUpdate.maKhoaHoc = this.maKhoaHoc;
-    infoUpdate.taiKhoan = userSignIn.taiKhoan;
+    infoUpdate.taiKhoan = taiKhoan;
     if (infoUpdate.taiKhoan) {
       this.registeredService.registeredCourse(infoUpdate).subscribe((data) => {
         alert(data)

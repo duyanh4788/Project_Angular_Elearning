@@ -62,10 +62,12 @@ export class SigincourseService {
     // post Account => admin/infoadmin/infoadmin.component" row 26
     private currentAccount = new BehaviorSubject(null);
     shareAccount = this.currentAccount.asObservable();
+    // post Account => client/detail/detail.component.ts row 52
     getCurrentAccount(): any {
         return this.currentAccount.value;
     }
     // get data json taiKhoan => client/signin/signin.component.ts row 38
+    // setSate taiKhoan => component/header/header.component row 100
     setCurrentAccount(value: any) {
         this.account = value
         this.currentAccount.next(value);

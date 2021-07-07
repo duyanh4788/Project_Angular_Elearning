@@ -93,9 +93,12 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/infoUser']);
   }
   // (click)="logOutUser()" row 31  di chuyển đến signin
+  // setSate taiKhoan => service/signinCourse/signincouse.service.ts row 71
   logOutUser() {
     this.loadingService.show()
     localStorage.clear()
+    let taiKhoan = localStorage.removeItem('account')
+    this.siginCourseService.setCurrentAccount(taiKhoan)
     this.userName = null
     setTimeout(() => {
       this.loadingService.hidden()
