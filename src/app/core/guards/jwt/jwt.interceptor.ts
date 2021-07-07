@@ -15,8 +15,8 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private siginCourseService: SigincourseService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    //  gọi data đã lưu ở localStorage từ core/service/signinCourse/signincouse.service.ts row 13
-    const { accessToken } = this.siginCourseService.getCurrentUser() || {};
+    //  get token core/service/signinCourse/signincouse.service.ts row 13
+    const accessToken = this.siginCourseService.getCurrentToken();
     if (accessToken) {
       request = request.clone({
         headers: request.headers.append("Authorization", `Bearer ${accessToken}`)

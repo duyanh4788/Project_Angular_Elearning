@@ -68,8 +68,9 @@ export class ModalinfouserComponent implements OnInit {
       this.inFoUser.soDT = this.formEdit.value.soDT;
       this.inFoUser.taiKhoan = this.formEdit.value.taiKhoan;
       console.log(data);
+      // setstate info user => InfouserComponent
       this.inforuserService.setInforUser(this.inFoUser)
-      // setstate hoTen show name header * sidehedader => service/signinCourse/sigincourse.service
+      // setstate hoTen showname header * sidehedader => service/signinCourse/sigincourse.service
       this.siginCourseService.setCurrentUserName(this.inFoUser.hoTen)
     })
     this.modalInfoUer.closeAll() // colse modal

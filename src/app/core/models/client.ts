@@ -60,14 +60,6 @@ export interface AddUsers {
   email: string;
 }
 
-// signIns?: SigIn => client/sigin/sigin.component.ts row 14
-// Observable && post core/services/siginCourse/sigincourse.service.ts
-export interface UserSigIn {
-  hoTen: string;
-  taiKhoan: string;
-  matKhau: string;
-}
-
 // Observable => service/searchUser/searchuser.service
 export interface SearchUser {
   taiKhoan: string;
@@ -78,5 +70,17 @@ export interface SearchUser {
   maLoaiNguoiDung: string;
   tenLoaiNguoiDung: string;
 }
+
+// Observable core/services/siginCourse/sigincourse.service.ts
+export interface UserSignIn {
+  taiKhoan:        string;
+  email:           string;
+  soDT:            string;
+  maNhom:          string;
+  maLoaiNguoiDung: string;
+  hoTen:           string;
+  accessToken:     string;
+}
+
 
 

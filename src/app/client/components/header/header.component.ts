@@ -94,17 +94,9 @@ export class HeaderComponent implements OnInit {
   }
   // (click)="logOutUser()" row 31  di chuyển đến signin
   logOutUser() {
-    // code logic logout
-    if (this.userName) {
-      this.loadingService.show()
-      //  gọi pt setCurrentUser thay đổi giá trị localstorage
-      let removeItem = localStorage.removeItem('userSignIn')
-      this.siginCourseService.setCurrentUser(removeItem);
-      let currentUser = this.siginCourseService.getCurrentUser();
-      if (!currentUser) {
-        this.userName = null
-      }
-    }
+    this.loadingService.show()
+    localStorage.clear()
+    this.userName = null
     setTimeout(() => {
       this.loadingService.hidden()
     }, 500);

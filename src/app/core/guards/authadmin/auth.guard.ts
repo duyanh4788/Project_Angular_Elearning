@@ -26,9 +26,9 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    //  gọi data đã lưu ở localStorage từ core/service/signinCourse/signincouse.service.ts row 13
-    const currentUser = this.siginCourseService.getCurrentUser();
-    if (currentUser == null) {
+    //  get currentTypeCode  core/service/signinCourse/signincouse.service.ts 
+    const userTypeCode = this.siginCourseService.getCurrentTypeCode();
+    if (userTypeCode !== "GV") {
       alert("Bạn Không Phải Admin !")
       this.router.navigate(['/signin'], {
         queryParams: { successUrl: state.url },
@@ -36,7 +36,7 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-    if (currentUser && currentUser.maLoaiNguoiDung === 'GV') {
+    if (userTypeCode && userTypeCode === 'GV') {
       return true;
     }
 

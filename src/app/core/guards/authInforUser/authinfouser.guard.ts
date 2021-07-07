@@ -15,16 +15,16 @@ export class AuthinfouserGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    //  gọi data đã lưu ở localStorage từ core/service/signinCourse/signincouse.service.ts row 13
-    const currentUser = this.siginCourseService.getCurrentUser()
-    if (currentUser) {
+    //  get userTypeCode => core/service/signinCourse/signincouse.service.ts row 13
+    const userTypeCode = this.siginCourseService.getCurrentTypeCode()
+    if (userTypeCode !== null) {
       return true
     }
     this.router.navigate(['/infoUser'])
-    if (!currentUser) {
+    if (userTypeCode == null) {
       alert("Bạn Phải Đăng Nhập !")
     }
-    this.router.navigate(['/'])
+    this.router.navigate(['/signin'])
     return false
   }
 }

@@ -32,11 +32,13 @@ export class InfouserComponent implements OnInit {
 
   // getInfoUserService => post api core/services/infoUser/inforuser.service.ts row 16
   // post & get data khi edit thông tin render html core/services/infoUser/inforuser.service.ts
-  // (userSignIn token) => service/signinCourse/sigincourse.service
+  // (accessToken) => service/signinCourse/sigincourse.service 
   getInfoUsers() {
-    let userSignIn = this.siginCourseService.getCurrentUser();
+    let accessToken = this.siginCourseService.getCurrentToken();
+    console.log(accessToken);
+    
     this.inforuserService
-      .getInfoUserService(userSignIn.accessToken)
+      .getInfoUserService(accessToken)
       .subscribe((data) => {
         const { chiTietKhoaHocGhiDanh, ...infoUser } = data
         this.inforuserService.setInforUser(infoUser)// post data
@@ -79,7 +81,7 @@ export class InfouserComponent implements OnInit {
     }
   }
 
-  // modal (click)="getDetailUser(infoUsers)" show form edit thông tin
+  // modal (click)="getDetailUser(infoUsers)" => modalinfouser/modalinfouser.component
   // infoUsers => object infoUsers html
   // getModalInfoUser post data => shared/shareData/shareModalInfoUser/sharemodalinfouser.service';
   getDetailUser(infoUsers: object) {

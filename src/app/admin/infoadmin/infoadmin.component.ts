@@ -38,11 +38,11 @@ export class InfoadminComponent implements OnInit {
 
   // getInfoUserService => post api core/services/infoUser/inforuser.service.ts row 16
   // post & get data khi edit thông tin render html core/services/infoUser/inforuser.service.ts
-  // (userSignIn token) => service/signinCourse/sigincourse.service
+  // (accessToken) => service/signinCourse/sigincourse.service
   getInfoAdmin() {
-    let userSignIn = this.siginCourseService.getCurrentUser();
+    let accessToken = this.siginCourseService.getCurrentToken();
     this.inforuserService
-      .getInfoUserService(userSignIn.accessToken)
+      .getInfoUserService(accessToken)
       .subscribe((data) => {
         const { chiTietKhoaHocGhiDanh, ...infoUser } = data
         this.inforuserService.setInforUser(infoUser)// post data

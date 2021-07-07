@@ -1,7 +1,6 @@
 // => finfoUsers?: InforUser => components/inforuser/inforuser.component.ts row 13
 // => Observable && get core/services/inforuser/inforuser.service.ts
 // => infoUsers?: InforUser => admin/infoadmin/infoadmin.component";
-
 export interface InforUser {
   chiTietKhoaHocGhiDanh: ChiTietKhoaHocGhiDanh[];
   taiKhoan: string;
@@ -24,6 +23,7 @@ export interface UnSubsCribeCouse {
   maKhoaHoc: string;
   taiKhoan: string;
 }
+
 // components/modalinfouser/modalinfouser.component
 export interface EditUser {
   chiTietKhoaHocGhiDanh: ChiTietKhoaHocGhiDanh[];

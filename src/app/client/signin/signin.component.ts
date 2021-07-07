@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingService } from '@service/loading/loading.service';
-import { UserSigIn } from 'src/app/core/models/client';
 import { SigincourseService } from 'src/app/core/services/signinCourse/sigincourse.service';
 
 @Component({
@@ -14,7 +13,7 @@ import { SigincourseService } from 'src/app/core/services/signinCourse/sigincour
 export class SigninComponent implements OnInit {
 
   @ViewChild('formSignIn') formSignIn!: NgForm; // ngForm signin.component.html
-  public signIns?: UserSigIn;
+
   public notiFy: string = ""
 
   constructor(
@@ -29,13 +28,22 @@ export class SigninComponent implements OnInit {
   handleSignIn() {
     // users => form signin.component.html row 3
     this.siginCourseService.signInUser(this.formSignIn.value).subscribe((data) => {
-      this.signIns = data;
-      alert(' Hello ' + data.hoTen);
-      localStorage.setItem('userSignIn', JSON.stringify(data)); // save data localstrogate (get token )
-      this.siginCourseService.setCurrentUser(data); // post data object core/services/signcourse/sigincourse.service.ts row 21
-      
-      localStorage.setItem('userName', JSON.stringify(data.hoTen)); // save data localstrogate ( get hoTen show name header)
-      this.siginCourseService.setCurrentUserName(data.hoTen); // post data userName core/services/signcourse/sigincourse.service.ts row 53
+
+      const { hoTen, maLoaiNguoiDung, accessToken, taiKhoan, ..._data } = data
+
+      alert(' Hello ' + hoTen);
+     
+      localStorage.setItem('userName', JSON.stringify(hoTen)); // save data localstrogate
+      this.siginCourseService.setCurrentUserName(hoTen); // post data userName core/services/signcourse/sigincourse.service.ts
+
+      localStorage.setItem('userTypeCode', JSON.stringify(maLoaiNguoiDung)); // save data localstrogate
+      this.siginCourseService.setCurrentTypeCode(maLoaiNguoiDung); // post data maLoaiNguoiDung 
+
+      localStorage.setItem('toKen', JSON.stringify(accessToken)); // save data localstrogate 
+      this.siginCourseService.setCurrentToken(accessToken); // post data accessToken 
+
+      localStorage.setItem('account', JSON.stringify(taiKhoan)); // save data localstrogate 
+      this.siginCourseService.setCurrentAccount(taiKhoan); // post data accessToken 
 
       // successUrl => sigin admin && registererCourses()
       const { successUrl } = this.activatedRoute.snapshot.queryParams;
@@ -47,9 +55,10 @@ export class SigninComponent implements OnInit {
 
     }, err => {
       this.notiFy = err.error
+      //service/loading/loading.service
       this.loadingService.show()
       setTimeout(() => {
-        this.loadingService.hidden()//service/loading/loading.service
+        this.loadingService.hidden()
       }, 500);
       this.formSignIn.reset()
     });

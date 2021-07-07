@@ -1,8 +1,8 @@
-// sử dụng => client/listcoursebycategory/listcoursebycategory.component row 11
-// sử dụng => service/CourseListCategory/courselistcategory.service"
+// => client/listcoursebycategory/listcoursebycategory.component row 11
+// => service/CourseListCategory/courselistcategory.service"
 
-// sử dụng => client/searchcourse/searchcourse.component row 12
-// sử dụng => service/searchlistcourse/searchlistcourse.service
+// => client/searchcourse/searchcourse.component row 12
+// => service/searchlistcourse/searchlistcourse.service
 
 export interface ListCourseByCategory {
   maKhoaHoc:      string;
