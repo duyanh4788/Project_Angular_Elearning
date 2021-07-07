@@ -53,8 +53,8 @@ export class UpdateuserComponent implements OnInit {
     this.formEditUser = new FormGroup({
       'taiKhoan': new FormControl(this.listUser.taiKhoan, [Validators.required]),
       'hoTen': new FormControl(this.listUser.hoTen, [Validators.required]),
-      'matKhau': new FormControl(this.listUser.matKhau, [Validators.required]),
-      'conFirmMatKhau': new FormControl(null, [Validators.required]),
+      'matKhau': new FormControl(this.listUser.matKhau),
+      'conFirmMatKhau': new FormControl(null),
       'email': new FormControl(this.listUser.email, [Validators.required]),
       'maNhom': new FormControl(this.listUser.maNhom, [Validators.required]),
       'soDT': new FormControl(this.listUser.soDt, [Validators.required]),

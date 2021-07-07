@@ -23,12 +23,6 @@
       <mat-label>Mật Khẩu Mới</mat-label>
       <input type="text" matInput formControlName="matKhau">
 
-      <!-- check empty -->
-      <span *ngIf="formEditUser.get('matKhau').hasError('required') && formEditUser.get('matKhau').touched">
-        Do Not Empty !
-      </span>
-      <!-- check empty -->
-
     </mat-form-field>
     <!-- Mật Khẩu -->
 
@@ -36,13 +30,6 @@
     <mat-form-field class="fieldInput" appearance="fill">
       <mat-label>Xác Nhận Mật Khẩu</mat-label>
       <input type="text" matInput formControlName="conFirmMatKhau">
-
-      <!-- check empty -->
-      <span
-        *ngIf="formEditUser.get('conFirmMatKhau').hasError('required') && formEditUser.get('conFirmMatKhau').touched">
-        Do Not Empty !
-      </span>
-      <!-- check empty -->
 
       <!-- check match -->
       <span
