@@ -64,7 +64,7 @@ export class ListcourseComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: false,
-    autoplay:false,
+    autoplay: false,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {

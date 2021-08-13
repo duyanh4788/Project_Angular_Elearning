@@ -6,7 +6,6 @@ import {
     HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-// import { LoadingService } from '@service/loading/loading.service';
 import { finalize } from 'rxjs/operators';
 import { LoadingService } from '@service/loading/loading.service';
 

@@ -16,7 +16,7 @@ export class JwtInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     //  get token core/service/signinCourse/signincouse.service.ts row 13
-    const accessToken = this.siginCourseService.getCurrentToken();
+    const accessToken = this.siginCourseService.getCurrentToken();   
     if (accessToken) {
       request = request.clone({
         headers: request.headers.append("Authorization", `Bearer ${accessToken}`)

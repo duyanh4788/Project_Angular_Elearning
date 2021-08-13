@@ -117,7 +117,6 @@ export class HeaderComponent implements OnInit {
   selectMaNhomSearchDefault() {
     this.maNhomForm = "GP01"
     this.findlistcourseService.getSearchCourse(this.maNhomForm).subscribe(data => {
-      console.log(data);
       this.findlistcourseService.setCurrentCourse(data)
     })
   }

@@ -80,3 +80,8 @@ $fxl: 17px;
 ::ng-deep .selectSearch {
   font-size: $fs;
 }
+
+// hover button
+::ng-deep .mat-button-focus-overlay {
+  background: $green;
+}

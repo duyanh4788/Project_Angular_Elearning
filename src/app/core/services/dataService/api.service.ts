@@ -36,10 +36,11 @@ export class ApiService {
     getApi<T>(uri: string, options = {} as Options): Observable<T> {
         this.loadingService.show()
         return this.http.get<T>(`${this.urlApi}/${uri}`, options).pipe(tap((data) => {
+            console.log(data);
             setTimeout(() => {
                 this.loadingService.hidden()
             }, 500);
-        },err=>{
+        }, err => {
             this.loadingService.hidden()
         }), catchError(this.showError))
     }
@@ -55,7 +56,7 @@ export class ApiService {
             setTimeout(() => {
                 this.loadingService.hidden()
             }, 500);
-        },err=>{
+        }, err => {
             this.loadingService.hidden()
         }), catchError(this.showError))
     }
@@ -70,7 +71,7 @@ export class ApiService {
             setTimeout(() => {
                 this.loadingService.hidden()
             }, 500);
-        },err=>{
+        }, err => {
             this.loadingService.hidden()
         }), catchError(this.showError))
     }

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,kBAAkB,CAAC;EACjB,UAAU,EAAE,KAAK;EACjB,SAAS,EAAE,KAAK;CACjB;;ACJC,AAAA,kBAAkB,CAAC;EACjB,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,aAAa,EAAE,GAAG;CACnB;;AACD,AAAA,gBAAgB,CAAC;EACf,KAAK,EAAE,eAAe;CACvB",
+    "sources": [
+        "modalusermanager.component.scss",
+        "../../../assets/scss/modaladmin.scss"
+    ],
+    "names": [],
+    "file": "modalusermanager.component.css"
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,SAAS,EAAE,KAAK;CACjB",
+    "sources": [
+        "modaldetailcourse.component.scss"
+    ],
+    "names": [],
+    "file": "modaldetailcourse.component.css"
+}

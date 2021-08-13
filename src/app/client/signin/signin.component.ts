@@ -47,6 +47,9 @@ export class SigninComponent implements OnInit {
 
       // successUrl => sigin admin && registererCourses()
       const { successUrl } = this.activatedRoute.snapshot.queryParams;
+      console.log(this.activatedRoute.snapshot.queryParams);
+      console.log(successUrl);
+      
       if (successUrl) {
         this.router.navigate([successUrl])
       } else {

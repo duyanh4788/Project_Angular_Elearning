@@ -21,6 +21,7 @@ export class ModaldetailcourseComponent implements OnInit {
   // shareModalCourse => phương thức nhận data từ core/modalCourse/modalcourse.service.ts row 10
   getDetailCourse(){
     this.shareModalService.shareModalCourse.subscribe((data:any) => {
+      console.log(data);
       this.detailCourse = data
     })
   }

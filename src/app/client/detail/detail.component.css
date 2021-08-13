@@ -1,0 +1,283 @@
+.container {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.container:not(.is-fluid) {
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 600px) {
+  .container:not(.is-fluid) {
+    width: 100%;
+    max-width: 570px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container:not(.is-fluid) {
+    width: 100%;
+    max-width: 860px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container:not(.is-fluid) {
+    width: 100%;
+    max-width: 1150px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .container:not(.is-fluid) {
+    width: 100%;
+    max-width: 1400px;
+  }
+}
+
+.container-sm {
+  margin: 0 auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  .container-sm {
+    max-width: 570px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container-sm {
+    max-width: 860px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container-sm {
+    max-width: 1150px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .container-sm {
+    max-width: 1400px;
+  }
+}
+
+.container-md {
+  margin: 0 auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 900px) {
+  .container-md {
+    max-width: 860px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container-md {
+    max-width: 1150px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .container-md {
+    max-width: 1400px;
+  }
+}
+
+.container-lg {
+  margin: 0 auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .container-lg {
+    max-width: 1150px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .container-lg {
+    max-width: 1400px;
+  }
+}
+
+.container-xl {
+  margin: 0 auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1800px) {
+  .container-xl {
+    max-width: 1400px;
+  }
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.col-1 {
+  -ms-flex-preferred-size: 8.33333%;
+      flex-basis: 8.33333%;
+}
+
+.col-2 {
+  -ms-flex-preferred-size: 16.66667%;
+      flex-basis: 16.66667%;
+}
+
+.col-3 {
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+
+.col-4 {
+  -ms-flex-preferred-size: 33.33333%;
+      flex-basis: 33.33333%;
+}
+
+.col-5 {
+  -ms-flex-preferred-size: 41.66667%;
+      flex-basis: 41.66667%;
+}
+
+.col-6 {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+
+.col-7 {
+  -ms-flex-preferred-size: 58.33333%;
+      flex-basis: 58.33333%;
+}
+
+.col-8 {
+  -ms-flex-preferred-size: 66.66667%;
+      flex-basis: 66.66667%;
+}
+
+.col-9 {
+  -ms-flex-preferred-size: 75%;
+      flex-basis: 75%;
+}
+
+.col-10 {
+  -ms-flex-preferred-size: 83.33333%;
+      flex-basis: 83.33333%;
+}
+
+.col-11 {
+  -ms-flex-preferred-size: 91.66667%;
+      flex-basis: 91.66667%;
+}
+
+.col-12 {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+
+/* lable imput formfield */
+::ng-deep .mat-form-field-label {
+  color: black !important;
+}
+
+/* line imput formfield */
+::ng-deep .mat-form-field-underline {
+  background-color: #1fc58e !important;
+}
+
+::ng-deep .mat-form-field-underline::before {
+  background-color: #1fc58e !important;
+}
+
+::ng-deep .mat-form-field-ripple {
+  background-color: #1fc58e !important;
+}
+
+/* scroll maNhom */
+::ng-deep .mat-primary::-webkit-scrollbar {
+  width: 6px;
+}
+
+::ng-deep .mat-primary::-webkit-scrollbar-thumb {
+  background: #f7f7f7;
+  border-radius: 10px;
+}
+
+::ng-deep .mat-primary::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px #f7f7f7;
+          box-shadow: inset 0 0 5px #f7f7f7;
+  border-radius: 10px;
+}
+
+/* active tab */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+  background-color: #f7f7f7;
+}
+
+/* ink bar tab*/
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #1fc58e;
+}
+
+::ng-deep .mat-accent .mat-slider-track-fill,
+::ng-deep .mat-accent .mat-slider-thumb,
+::ng-deep .mat-slider-thumb-label {
+  background-color: #1fc58e !important;
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #1fc58e;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: #f7f7f7;
+}
+
+::ng-deep .selectSearch {
+  font-size: 10px;
+}
+
+::ng-deep .mat-button-focus-overlay {
+  background: #1fc58e;
+}
+
+.container mat-card {
+  background-color: #f7f7f7;
+}
+
+.container mat-card button {
+  background-color: #1fc58e;
+  color: #f7f7f7;
+}
+
+.container mat-card img {
+  width: 100%;
+  height: 300px;
+}
+
+.container mat-card .introCourse {
+  text-align: left;
+}
+
+.container mat-card hr {
+  border: 1px solid #1fc58e;
+}
+/*# sourceMappingURL=detail.component.css.map */

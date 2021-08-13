@@ -35,8 +35,6 @@ export class InfouserComponent implements OnInit {
   // (accessToken) => service/signinCourse/sigincourse.service 
   getInfoUsers() {
     let accessToken = this.siginCourseService.getCurrentToken();
-    console.log(accessToken);
-    
     this.inforuserService
       .getInfoUserService(accessToken)
       .subscribe((data) => {
