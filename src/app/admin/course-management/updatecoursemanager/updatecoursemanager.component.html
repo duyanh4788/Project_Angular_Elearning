@@ -80,7 +80,8 @@
       </mat-select>
 
       <!-- check empty -->
-      <ng-container *ngIf="formUpdateCourse.get('maDanhMucKhoaHoc').invalid && formUpdateCourse.get('maDanhMucKhoaHoc').touched">
+      <ng-container
+        *ngIf="formUpdateCourse.get('maDanhMucKhoaHoc').invalid && formUpdateCourse.get('maDanhMucKhoaHoc').touched">
         <span *ngIf="formUpdateCourse.get('maDanhMucKhoaHoc').errors['required']">
           Do Not Empty !
         </span>
@@ -111,14 +112,15 @@
     <!-- taiKhoanNguoiTao -->
     <mat-form-field fxFlex="50" color="accent" appearance="fill" class="formAdd">
       <mat-label>Tài Khoản : </mat-label>
-      <input type="text" matInput disabled value={{updateCourse.nguoiTao?.taiKhoan}} >
-
-      <ng-container *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').invalid && formUpdateCourse.get('taiKhoanNguoiTao').touched">
+      <input type="text" matInput disabled value={{updateCourse.nguoiTao?.taiKhoan}}>
+      <!-- check empty -->
+      <ng-container
+        *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').invalid && formUpdateCourse.get('taiKhoanNguoiTao').touched">
         <span *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').errors['required']">
           Do Not Empty !
         </span>
       </ng-container>
-
+      <!-- check empty -->
     </mat-form-field>
     <!-- taiKhoanNguoiTao -->
 
