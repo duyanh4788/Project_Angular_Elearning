@@ -101,7 +101,7 @@
     <!-- phone -->
 
     <!-- mã loại người dùng -->
-    <section class="example-section">
+    <section class="section">
       <label>Loại Học Viên : </label>
       <ng-container *ngIf="listUser.maLoaiNguoiDung === 'GV' else maHV ">
         <input type="radio" value="HV" name="maND" (change)="getMaNguoiDung($event)">Học Viên

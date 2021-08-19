@@ -67,7 +67,8 @@ export class ApiService {
     // => service/addCourse/addcourse.service
     postApiToken<T>(uri: string, data: any, options = {}): Observable<T> {
         this.loadingService.show()
-        return this.http.post<T>(`${this.urlApi}/${uri}`, data, options).pipe(tap(() => {
+        return this.http.post<T>(`${this.urlApi}/${uri}`, data, options).pipe(tap((data) => {
+            console.log(data);
             setTimeout(() => {
                 this.loadingService.hidden()
             }, 500);

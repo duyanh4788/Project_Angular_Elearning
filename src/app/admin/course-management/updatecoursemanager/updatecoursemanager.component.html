@@ -113,13 +113,11 @@
       <mat-label>Tài Khoản : </mat-label>
       <input type="text" matInput disabled value={{updateCourse.nguoiTao?.taiKhoan}} >
 
-      <!-- check empty -->
       <ng-container *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').invalid && formUpdateCourse.get('taiKhoanNguoiTao').touched">
         <span *ngIf="formUpdateCourse.get('taiKhoanNguoiTao').errors['required']">
           Do Not Empty !
         </span>
       </ng-container>
-      <!-- check empty -->
 
     </mat-form-field>
     <!-- taiKhoanNguoiTao -->

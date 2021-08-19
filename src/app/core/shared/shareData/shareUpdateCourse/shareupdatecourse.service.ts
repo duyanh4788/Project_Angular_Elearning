@@ -16,7 +16,6 @@ export class ShareupdatecourseService {
 
     // get data course => admin/course-management/course-management.component row 86
     getDataUpdateCourse(infoCourse: any) {
-        console.log(infoCourse);
         this.updateCourse = infoCourse
         this.currentUpdateCourse.next(infoCourse)
     }
